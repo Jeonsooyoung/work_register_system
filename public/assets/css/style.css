@@ -40,7 +40,8 @@ ul,ol {list-style:none; vertical-align:top;}
 .card .description p {margin:0}
 @media (max-width: 991px) {
     .inp-txt {width:100%}
-	.modal-container {width:100%;}
+    .modal-container {width:100%;}
+    .sidebar .nav {font-size:0;}
 }
 
 
