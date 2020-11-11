@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>자료 모음 : 개인작업물 관리</title>
+	
+	<link rel="stylesheet" href="assets/css/fullcalendar.css" />
+	<link rel="stylesheet" href="assets/css/fullcalendar.print.css" />
+	<!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<!-- Light Bootstrap Table core CSS -->
+	<link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>	
+
+    <link rel="stylesheet" href='assets/css/bootstrap-datetimepicker.min.css' />
+
+	<!-- Animation library for notifications -->
+	<link href="assets/css/animate.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href='assets/css/select2.min.css' />
+
+
+	<!-- Fonts and icons -->
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>	  
+
+	<!-- CSS for Demo Purpose, don't include it in your project 
+	<link href="assets/css/demo.css" rel="stylesheet" />-->
+	<link href="assets/css/style.css" rel="stylesheet" />	
+</head>
+<body>
+   <div class="sidebar" data-color="azure" data-image="assets/img/coffee.jpg">
+		<!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="#" class="simple-text">
+                    작업 관리
+                </a>
+            </div>
+            <ul class="nav">
+                <li>
+                    <a href="index.html">
+                        <i class="pe-7s-science"></i>
+                        <p>오늘의 체크리스트</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="task_record.html">
+                        <i class="pe-7s-graph"></i>
+                        <p>업무 내역 기록</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="work_library.html">
+                        <i class="pe-7s-user"></i>
+                        <p>나만의 라이브러리</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="data_info_set.html">
+                        <i class="pe-7s-note2"></i>
+                        <p>자료 모음</p>
+                    </a>
+                </li>             				
+            </ul>
+    	</div>
+   </div>
+
+    <div class="main-panel">
+		<nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">자료 모음</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-globe"></i>
+                                <b class="caret hidden-sm hidden-xs"></b>
+                                <span class="notification hidden-sm hidden-xs">5</span>
+									<p class="hidden-lg hidden-md">
+										5 Notifications
+										<b class="caret"></b>
+									</p>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Notification 1</a></li>
+                                <li><a href="#">Notification 2</a></li>
+                                <li><a href="#">Notification 3</a></li>
+                                <li><a href="#">Notification 4</a></li>
+                                <li><a href="#">Another notification</a></li>
+                              </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+						<!-- 오류 관련 참고 자료 -->
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">오류 관련 정보 모음</h4>
+                                <p class="category">작업 중 오류 내역 기록장입니다.</p>
+                            </div>
+                            <div class="content">
+								<h5><span class="num"></span>IE8 에서 :checked 가 css 에서 활용 안되기 때문에 발생하는 이슈</h5>
+								<p>
+									참고 URL : 
+									<a href="http://blog.kazikai.net/?p=111" target="_blank">http://blog.kazikai.net/?p=111</a>
+								</p>
+                            </div>
+                            <div class="content">
+								<h5><span class="num"></span>IE9/Chrom table border 문제</h5>
+								<p>IE9과 크롬에서 테이블 선이 제대로 보이지 않는 경우</p>
+								<p>
+									참고 URL : 	<a href="http://blog.kazikai.net/?p=111" target="_blank">http://blog.kazikai.net/?p=111</a>
+								</p>
+                            </div>
+                            <div class="content">
+								<h5><span class="num"></span>스크롤 막기 오류</h5>
+								<p>모바일에서 overflow:hidden이 안먹히는 상황에서 참고</p>
+								<p>
+									참고 URL : 	<a href="https://blog.naver.com/besthuman01/220603602247" target="_blank">https://blog.naver.com/besthuman01/220603602247</a>
+								</p>
+                            </div>
+                        </div>
+
+						<!-- 기능 관련 참고 자료 -->
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">기능 관련 정보 모음</h4>
+                                <p class="category"> 자주 사용하는 기능 정보 기록장입니다.</p>
+                            </div>
+                            <div class="content">
+								<h5><span class="num"></span>Each() : 선택한 요소 각각에 대하여 함수를 실행</h5>
+								<p>
+									참고 URL : 
+									<a href="https://www.codingfactory.net/10312">https://www.codingfactory.net/10312</a>
+								</p>
+                            </div>
+                            <div class="content">
+								<h5><span class="num"></span>팝업과 모달 차이점</h5>
+								<p>
+									참고 URL : 	<a href="https://webisfree.com/2016-03-24/%EC%9B%B9%EC%97%90%EC%84%9C-%EB%AA%A8%EB%8B%AC%EC%B0%BD%EA%B3%BC-%ED%8C%9D%EC%97%85%EC%B0%BD%EC%9D%98-%EC%9E%A5%EB%8B%A8%EC%A0%90-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0"  target="_blank">https://webisfree.com/2016-03-24/웹에서-모달창과-팝업창의-장단점-알아보기</a>
+								</p>
+                            </div>
+                        </div>
+
+						<!-- UI 관련 참고 자료 -->
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">UI 관련 정보 모음</h4>
+                                <p class="category"> HTML,CSS 관련  정보 기록장입니다.</p>
+                            </div>
+                            <div class="content">
+								<h5><span class="num"></span>글꼴을 지정하는 font-family 속성</h5>
+								<p>바탕체/고딕체/가로폭 동일 글꼴/필기체</p>
+								<p>
+									참고 URL : 
+									<a href="https://www.codingfactory.net/10312" target="_blank">https://aboooks.tistory.com/144</a>
+								</p>
+                            </div>
+
+                            <div class="content">
+								<h5><span class="num"></span>vertical-align 속성</h5>
+								<p>
+									참고 URL : 
+									<a href="http://blog.hivelab.co.kr/%EA%B3%B5%EC%9C%A0-vertical-align-%ED%8C%8C%ED%97%A4%EC%B9%98%EA%B8%B0-1%EB%B6%80/" target="_blank">http://blog.hivelab.co.kr/공유-vertical-align-파헤치기-1부/</a>
+								</p>
+                            </div>
+
+                            <div class="content">
+								<h5><span class="num"></span>[JavaScript] Input 태그의 체크여부 확인하기, 체크값 불러오기</h5>
+								<p>
+									참고 URL : 
+									<dl>
+										<dt>태그의 체크여부 </dt>
+										<dd>
+											<a href="https://webisfree.com/2016-05-14/[javascript]-input-%ED%83%9C%EA%B7%B8%EC%9D%98-%EC%B2%B4%ED%81%AC%EC%97%AC%EB%B6%80-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0-%EC%B2%B4%ED%81%AC%EA%B0%92-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0">https://webisfree.com/2016-05-14/input-태그의-체크여부-확인하기-체크값-불러오기</a>
+										</dd>
+										<dt>.attr(), .prop() 차이</dt>
+										<dd>
+											<a href="https://aramk.tistory.com/25">https://aramk.tistory.com/25</a>
+										</dd>
+										<dt>check box 사용</dt>
+										<dd>
+											<a href="https://loomio.kr/27">https://loomio.kr/27</a>
+										</dd>
+									</dl>
+								</p>
+                            </div>
+
+
+                            <div class="content">
+								<h5><span class="num"></span>[JavaScript] 문자열에서 문자 찾기</h5>
+								<p>
+									참고 URL : 
+									<dl>
+										<dt>문자열에서 문자 찾기</dt>
+										<dd>
+											<a href="https://enzycut.tistory.com/entry/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%AC%B8%EC%9E%90%EC%97%B4%EC%97%90%EC%84%9C-%EB%AC%B8%EC%9E%90-%ED%8F%AC%ED%95%A8-%EC%97%AC%EB%B6%80" target="_blank">https://enzycut.tistory.com/entry/자바스크립트문자열에서-문자-포함-여부</a>
+										</dd>									
+									</dl>
+								</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container-fluid">
+
+                <p class="copyright pull-right">
+                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+    <!--   Core JS Files   -->
+    <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+	<!--  Charts Plugin -->
+	<script src="assets/js/chartist.min.js"></script>	
+	
+    <!--  Notifications Plugin    -->
+	<script src="assets/js/bootstrap-notify.js"></script>
+
+	<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+	<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+	 <!-- calendar -->
+	 <script src="assets/js/moment.min.js"></script>
+	 <script type="text/javascript" src="assets/js/fullcalendar.js"></script>
+	 <script type="text/javascript" src="assets/js/jquery-ui.custom.min.js"></script>
+	 <script type="text/javascript" src="assets/js/ko.js"></script>
+	 <script src="assets/js/select2.min.js"></script>
+	 <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+	 <script src="assets/js/function/main.js"></script>
+	 <script src="assets/js/function/addEvent.js"></script>
+	 <script src="assets/js/function/editEvent.js"></script>
+	 <script src="assets/js/function/etcSetting.js"></script>
+
+	<!-- Vue js   -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
+
+	 <!--  Charts Plugin -->
+	 <script src="assets/js/chartist.min.js"></script>
+	 <script src="assets/js/bootstrap-notify.js"></script>
+	   
+    <!--  Google Maps Plugin    
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>-->
+
+	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! 
+	<script src="assets/js/demo.js"></script>-->
+	<script type="text/javascript">
+
+	//기록장 번호 매김
+	$(".card .num").each(function(){
+		var num = $(this).closest(".content").index();
+		$(this).text(num+'.');
+	})
+
+	</script>
+
+</html>

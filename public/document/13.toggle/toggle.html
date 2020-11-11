@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8" />
+  <title> 아코디언 메뉴 </title>
+  <style type="text/css">
+	body{margin:0px;padding:0px}
+	a{text-decoration:none}
+	ul,li {margin:0; padding:0;list-style:none}
+/* accordion */
+.accBox{margin:0px auto; border:1px solid #aaa; border-bottom:0;}
+.accBox > li {position:relative; border-bottom:1px solid #aaa;  }
+.accBox li .question, .accBox > li > span {display:block;background:#eee; padding:16px 10px; font-size:15px;font-family:Dotum,'맑은 고딕',AppleGothic,sans-serif; color:#111}
+.accBox li .question > span {position:relative; display:block;  padding-right:20px;}
+.accBox li .question .txt-orange {color:orange; font-size:12px; margin-left:8px; }
+.accBox li .question span:after {display:inline-block; position:absolute; top:50%; right:0px; width:14px; height:14px; line-height:14px; margin-top:-7px;text-align:center; content:'▼'; font-size:11px; color:#ccc}
+.accBox li .question:hover,.accBox li .question:focus{color:#666}
+.accBox li.on .question{border-bottom:0; font-weight:bold;color:#000}
+.accBox li .answerBox{display:none;padding:10px 0px;}
+.accBox li .answerBox .answer p{line-height:24px;color:#55565a}
+.accBox li .question .btn-refresh {position:absolute; top:16px; right:0; }
+.answerBox .checks {margin-bottom:16px;}
+.btn-allopen {position:absolute; right:25px; top:55px; padding:10px; padding-right:16px; font-size:12px; color:#333; }
+.btn-allopen:after {display:inline-block; position:absolute; top:50%; right:0px; width:10px; height:10px; line-height:10px; margin-top:-5px; text-align:center; content:'▼'; font-size:11px; color:#333}
+
+#content > * {width:800px; margin:0 auto }
+  </style>
+  <script type="text/javascript" src="../../assets/js/jquery.3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/left.js"></script>
+	<script type="text/javascript">
+	function accordion() {// 아코디언 메뉴
+	$accBox = $(".accBox");
+	$accBox.find("a").on("click",function(){
+		var display = $(this).next().css("display");
+		if(display=="none") {
+			$(this).parent().addClass("on").siblings().removeClass("on").end().find(".answerBox").stop().slideDown();
+		}else{
+			$(this).parent().removeClass("on").find(".answerBox").stop().slideUp();
+		}
+		return false;
+	});
+	$(".accBox li").each(function(){
+		var contentShow = $(this).hasClass("on")
+		if( contentShow ) {
+			$(this).find(".answerBox").show();
+		}
+	}) 
+	
+}
+$(document).ready(function(){
+	accordion();
+})
+	</script>
+ </head>
+
+ <body>
+  <div id="wrap">
+	<div id="content">
+	<div class="jumbotron">
+		  <h1 class="display-5">아코디언 메뉴(기능)</h1>
+		</div>
+		<ul class="accBox">
+			<li id="tab1">
+					<a href="#" class="question">
+						<span class="title">타이틀1 : 닫힘 타이틀</span>
+					</a>
+					<div class="answerBox">
+						내용1
+					</div>
+				</li>
+			<li id="tab2" class="on">
+				<a href="#" class="question">
+					<span class="title">타이틀2 : 열림 타이틀 </span>
+				</a>
+				<div class="answerBox">
+					내용2
+				</div>
+			</li>
+		</ul>
+	</div>
+  </div>
+ </body>
+</html>

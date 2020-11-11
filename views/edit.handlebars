@@ -1,0 +1,213 @@
+<h1 class="text-center mb-3">{{title}}</h1>
+<div class="wrapper" id="app">
+	<div>
+    <!-- sidebar -->
+    <div class="sidebar" data-color="orange" data-image="assets/img/coffee.jpg">
+      <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a href="#" class="simple-text">
+            작업 관리
+          </a>
+        </div>
+        <ul class="nav">
+          <li class="active">
+            <a href="/index">
+              <i class="pe-7s-graph"></i>
+              <p>업무 내역 기록</p>
+            </a>
+          </li>
+          <li>
+            <a href="/dashboard">
+              <i class="pe-7s-science"></i>
+              <p>오늘의 체크리스트</p>
+            </a>
+          </li>
+          <li>
+            <a href="/workLibrary">
+              <i class="pe-7s-user"></i>
+              <p>나만의 라이브러리</p>
+            </a>
+          </li>
+          <li>
+            <a href="/dataInfoSet">
+              <i class="pe-7s-note2"></i>
+              <p>자료 사이트</p>
+            </a>
+          </li>             				
+        </ul>
+      </div>
+    </div>
+    <!-- //sidebar -->				   
+    
+    <div class="main-panel">
+      <nav class="navbar navbar-default navbar-fixed">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">업무 내역 기록</a>
+            </div>
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-left">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <i class="fa fa-globe"></i>
+                      <b class="caret hidden-lg hidden-md"></b>
+                      <p class="hidden-lg hidden-md">
+                        5 Notifications
+                        <b class="caret"></b>
+                      </p>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Notification 1</a></li>
+                    <li><a href="#">Notification 2</a></li>
+                    <li><a href="#">Notification 3</a></li>
+                    <li><a href="#">Notification 4</a></li>
+                    <li><a href="#">Another notification</a></li>
+                  </ul>
+              </li>                        
+            </ul>
+            </div>
+          </div>
+        </nav>
+    
+        <div class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div clas="col-md-12 col-lg-12">
+                <div class="card">
+                  <div class="header">
+                    <h4 class="title">업무 입력</h4>
+                  </div>
+                  <div class="content">
+                    <form action="/edit/{{lists._id}}" id="form" method="POST" class="mb-4">
+                      <div class="ui form">
+                        <div class="field">
+                          <label for="teamName">팀명</label>
+                          <input type="text" name="teamName" id="teamName" value="{{lists.teamName}}" class="form-control">
+                        </div>
+                        <div class="field input">
+                          <label for="manager">담당자</label>
+                          <input type="text" name="manager" id="manager" value="{{lists.manager}}" class="form-control">
+                        </div>
+                        <div class="field input">
+                          <label for="getDate">업무 확인일 설정</label>
+                          <input type="text" name="getDate" id="getDate" value="{{lists.getDate}}" class="form-control">
+                        </div>
+                        <div class="field input">
+                          <label for="startDate">시작 예정일 설정</label>
+                          <input type="text" name="startDate" id="startDate" value="{{lists.startDate}}" class="form-control">
+                        </div>
+                        <div class="field input">
+                          <label for="dueDate">완료 예정일 설정</label>
+                          <input type="text" name="dueDate" id="dueDate" value="{{lists.dueDate}}" class="form-control">
+                        </div>
+                        <div class="field input">
+                          <label for="endDate">완료일 설정</label>
+                          <input type="text" name="endDate" id="endDate" value="{{lists.endDate}}" class="form-control">
+                        </div>
+                        <div class="field input">
+                          <label for="tasks">업무 내용</label>
+                          <input type="text" name="tasks" id="tasks" value="{{lists.tasks}}" class="form-control">
+                        </div>
+
+                        <button type="submit" class="ui fluid large teal submit button">Save</button>
+                      </div>
+
+                      {{!-- <div class="ui error message">아이디를 입력해주세요.</div> --}}
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+						
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <!-- 기존 정보 불러오기 -->
+          <ul class="ui relaxed divided items">
+            {{#each lists}}
+            <li class="item">
+              <div class="content">
+                <h3 class="header">{{this.teamName}}</h3>
+                <div class="meta">
+                  <p>업무 확인일 : {{this.getDate}}</p>
+                  <span>작업 예정일 : {{this.startDate}} ~ {{this.dueDate}}</span>
+                  <p>담당자 : {{this.manager}} 매니저</p>
+                </div>
+                <div class="description">
+                  <p>업무 내용</p>
+                  <strong>{{this.tasks}}</strong>
+                </div>
+                <div class="extra">
+                  <a href="/edit/{{this._id}}" class="ui right floated primary button revise-btn">
+                    <i aria-hidden="true" class="fa fa-trash"></i>
+                    수정</a>
+                  <a href="/{{this._id}}" class="ui right floated primary button del-btn">
+                    <i aria-hidden="true" class="fa fa-pencil"></i></i>
+                    삭제</a>
+                </div>
+              </div>
+            </li>
+            {{/each}}
+          </ul>
+        </div> 
+        <footer class="footer">
+          <div class="container-fluid">
+    
+            <p class="copyright pull-right">
+              &copy; <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+            </p>
+          </div>
+        </footer>
+    
+    
+      </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        var data = {
+          series: [3, 8]
+        };
+
+        var sum = function(a, b) { return a + b };
+
+        new Chartist.Pie('.ct-chart', data, {
+          labelInterpolationFnc: function(value) {
+            return Math.round(value / data.series.reduce(sum) * 100) + '%';
+          }
+        });
+
+        var date = new Date(); 
+        var year = date.getFullYear(); 
+        var month = new String(date.getMonth()+1); 
+        var day = new String(date.getDate()); 
+
+        // 한자리수일 경우 0을 채워준다. 
+        if(month.length == 1){ 
+          month = "0" + month; 
+        } 
+        if(day.length == 1){ 
+          day = "0" + day; 
+        } 
+
+        $.notify({
+            icon: 'pe-7s-gift',
+            message: "<strong>"+ year + "년 " + month + "월 " + day +"일</strong> 개인 작업물 내역입니다. "
+
+          },{
+              type: 'info',
+              timer: 4000
+          });
+
+    });
+</script>

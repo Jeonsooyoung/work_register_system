@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8" />
+  <title> 아코디언 메뉴 </title>
+  <style type="text/css">
+	body{margin:0px;padding:0px}
+	a{text-decoration:none}
+	ul,li {margin:0; padding:0;list-style:none}
+/* box */
+.aside-box {padding:10px;box-sizing:border-box}
+.aside-box.box {width:100%; padding:20px; border:1px solid #da2221}
+.aside-box .title { font-weight:normal; font-size:20px; letter-spacing:-1px; line-height:1.5; color:#333;}
+.aside-box .title .sale {margin-left:5px; color:#da2221;}
+.aside-box .title svg {font-size:15px;}
+.aside-box .date {display:inline-block; line-height:20px; font-size:12px; letter-spacing:-0.2px; color:#333}
+.aside-box .btn-group {margin-bottom:10px; }
+.aside-box .sub-title {padding:10px 0px 10px 10px;font-size:16px; font-family:Arial,sans-serif!important}
+
+.seller-data li {margin-bottom:10px;}
+.seller-data .img {display:inline-block; width:50px; height:50px; border-radius:50%; background:url("../../assets/img/coffee.jpg") no-repeat center center/cover; box-shadow: 0 0 2px rgba(0,0,0,0.2); text-align:center;vertical-align:middle;}
+.seller-data .seller-cnt {display:inline-block;margin-left:10px;vertical-align:middle; box-sizing:border-box}
+.seller-data .seller-cnt .title {margin-top:3px; line-height:20px; font-size:16px; color:#111;}
+.seller-data .seller-cnt .title:hover {color:#666;}
+
+.info .rating{font-size:10px; color:#f79921;vertical-align:middle;}
+.info .txt-gray{font-size:11px;color:#888;vertical-align:middle;}
+
+
+
+.txt-orange {color:orange}
+/* review-box */
+.review-img {display:block; width:100%; height:300px; background:url("../../assets/img/full-screen-image-3.jpg") no-repeat; background-size: cover; background-position: 50% 50%;}
+
+.review-box {margin-top:10px; border:1px solid #ddd; margin-bottom:20px;}
+.review-profile {padding:10px; padding-right:100px; background:#fefefe;}
+.review-profile .img {display:inline-block; margin-right:5px;width:30px; height:30px; border-radius:50%; background:url("../../assets/img/coffee.jpg") no-repeat center center/cover; box-shadow: 0 0 2px rgba(0,0,0,0.2); text-align:center;vertical-align:middle;}
+.review-profile .date {top:50%; right:15px; margin-top:-7px;}
+.review-top {padding:10px 20px;}
+.review-top .title {display:block; margin-bottom:10px; font-size:16px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; color:inherit}
+.review-case {position:relative; padding-left:22px;color:orange}
+.review-case:after {display:inline-block; position:absolute; top:50%; left:5px; width:14px; height:14px; line-height:14px; margin-top:-7px; text-align:center;  font-size:16px; color:#999}
+.review-cnt, .review-answer {padding:16px 20px; }
+.review-answer {border-top:1px dashed #eee}
+
+#contents {width:800px; margin:0 auto;}
+  </style>
+  <script type="text/javascript" src="../../assets/js/jquery.3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/left.js"></script>
+	<script type="text/javascript">
+
+	$(document).ready(function(){
+
+	})
+	</script>
+ </head>
+
+ <body>
+  <div id="wrap">
+		<div id="contents">
+			<div class="aside-box">
+				<h3 class="sub-title">여행 도우미</h3>
+				<ul class="seller-data">
+					<li>
+						<a href="#" class="img"></a>
+						<div class="seller-cnt">
+							<h4 class="title">아름다운 사람과의 동행</h4>
+							<p class="info">
+								<span class="txt-gray">전체후기 129개</span>
+							</p>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="img"></a>
+						<div class="seller-cnt">
+							<h4 class="title">아름다운 사람과의 동행</h4>
+							<p class="info">
+								<span class="txt-gray">전체후기 129개</span>
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="review-box">
+				<div class="review-profile ui-side">
+					<span class="img"></span>
+					<span class="name">이해인</span>
+					<span class="date ui-side-rt">2019-01-13</span>
+				</div>
+				<a href="#layer-img" class="review-img"></a>
+				<div class="review-top">
+					<a href="#" class="title">타이틀1</a>
+					<p class="info">
+						<span class="review-case">서브 내용</span>
+					</p>
+				</div>
+				<div class="review-cnt">
+						리뷰 내용1
+				</div>
+				<div class="review-answer">
+					<div class="review-profile">
+						<span class="img"></span>
+						<span class="name">답변 내용</span>
+					</div>
+					<div class="review-cnt">
+						리뷰 내용2
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+ </body>
+</html>

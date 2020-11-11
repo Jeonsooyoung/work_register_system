@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" >
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<meta name="author" content="SK MNS" >
+	<title>슬라이더</title>
+	<style type="text/css">
+	body, ul{margin:0px;padding:0px}
+	ul{list-style:none}
+	a{text-decoration:none}
+
+	body{font-size:12px}
+	.slider, .slider .visual, .slider .visual li, .slider .visual li a{width:100%;height:500px}
+	.slider{overflow:hidden;position:relative}
+	.slider a{display:block}
+	.slider .visual li, .slider .prev, .slider .next, .slider .play_stop, .slider .paging{position:absolute; z-index:0}
+
+	/* visual */
+	.slider .visual li{top:0px;left:100%}
+	.slider .visual li.list1{left:0px}
+	.slider .visual li a{text-indent:-9999px;background-repeat:no-repeat;background-position:center top}
+	.slider .visual li.list1 a{background-image:url("../../assets/img/full-screen-image-3.jpg")}
+	.slider .visual li.list2 a{background-image:url("../../assets/img/coffee.jpg")}
+	.slider .visual li.list3 a{background-image:url("../../assets/img/full-screen-image-3.jpg")}
+	/* 이전, 다음 */
+	.slider .prev_next a{top:225px;left:50%;width:50px;height:50px;background:coral;color:#fff;-webkit-border-radius:25px; -moz-border-radius:25px; border-radius:25px;text-align:center;line-height:50px;}
+	.slider .prev_next .prev{margin-left:-550px}
+	.slider .prev_next .next{margin-left:500px}
+
+	.slider .play_stop, .slider .paging{bottom:30px;left:50%;}
+	/* play, stop */
+	.slider .play_stop{margin-left:80px}
+	.slider .play_stop a{display:none;width:50px;height:15px;line-height:15px;text-align:center;color:#fff}
+	.slider .play_stop a.on{display:block}
+	.slider .play_stop .play{background:red}
+	.slider .play_stop .stop{background:blue}
+
+	/* paging */
+	.paging{position:absolute; left:50%; bottom:20px; width:auto;}
+	.paging li{float:left; width:12px; height:12px; margin-right:10px}
+	.paging li a{display:block; background:#fff; width:100%; height:100%; border-radius:50%; text-indent:-9999px}
+	.paging li.on a{background:#000;}
+
+	</style>
+	<!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
+
+	<!-- <link rel="stylesheet" href="../css/layout.css" media="screen, print" />
+	<link rel="stylesheet" href="../css/contents.css" media="screen, print" />
+	<script src="../js/layerpop.js"></script>
+	<script src="../js/inpdesign.js"></script>
+	<script src="../js/common.js"></script> -->
+	<script src="../../assets/js/jquery.3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			function slider () {
+				var $visual=$(".slider .visual > li");
+				var $paging=$(".slider .paging li");
+				var total=$visual.length;		//슬라이더의 총 개수 3
+				var nowNum=0;	//현재 보여지는 슬라이더의 인덱스 번호 0을 대입
+				var nextNum;		//클릭한 인덱스번호, 다음에 보여질 인덱스 번호
+				var playNext;		//clearInterval() 메서드에서 호출할수 있도록 전역변수 설정
+				//console.log(total);
+
+				//1) paging 버튼을 클릭하는 경우
+				$paging.children().on("click",function  () {
+					nextNum=$(this).parent().index();
+					//console.log(nextNum);
+					//제어1) 자동실행 멈추기
+					clearInterval(playNext);
+
+					//제어2) play 버튼이 보여지도록 하기
+					$(".slider .play_stop .play").addClass("on").siblings().removeClass("on");
+
+					//제어3) 자기자신은 클릭하지 못하게 한다
+					if (nowNum==nextNum) return false;
+
+					//1-1) $pagingi태그 on 클래스명 제어
+					$(this).parent().addClass("on").siblings().removeClass("on");
+					//1-2) $visual을 animate 시키기
+					$visual.eq(nowNum).css("left",0).stop().animate({left:"-100%"});
+					$visual.eq(nextNum).css("left","100%").stop().animate({left:0});
+
+					nowNum=nextNum;	//nowNum값을 0으로 고정시키지 말고 클릭한 인덱스 번호로 변경 시켜준다
+
+					return false;
+				});
+
+				//2) 자동으로 슬라이더 되는 경우
+				function timer () {
+					playNext=setInterval(function  () {
+						nextNum=nowNum+1;
+						if (nextNum==3) nextNum=0;
+						
+						//2-1) $paging태그 on 클래스명 제어
+						$paging.eq(nextNum).addClass("on").siblings().removeClass("on");
+						//2-2) $visual을 animate 시키기
+						$visual.eq(nowNum).css("left",0).stop().animate({left:"-100%"});
+						$visual.eq(nextNum).css("left","100%").stop().animate({left:0});
+
+						nowNum++;		//animate가 끝나면 nowNum은 1씩 자동 증가되어야 함
+						if (nowNum==3) nowNum=0;
+
+						//47, 48라인 대신 한줄 처리 한다면..
+						//nowNum=nextNum;
+
+					}, 3000);
+				}
+				timer ();
+
+				//3) 이전, 다음 버튼을 클릭하는 경우
+				$(".slider .prev_next a").on("click",function  () {
+					var num=$(this).index();
+					console.log(num);
+
+					//조건식? 참일경우 실행문(이전) : 거짓일경우 실행문(다음);
+					num==0? nextNum=nowNum-1 : nextNum=nowNum+1;
+					//현재 사용가능한 인덱스 번호는 0 ,1 , 2
+					if (nextNum==-1) nextNum=2;
+					else if (nextNum==3) nextNum=0;
+					/* 60라인의 삼항조건연산자 대신 if 제어문을 사용하는 경우
+					if (num==0) nextNum=nowNum-1;	//이전버튼
+					else nextNum=nowNum+1;				//다음버튼
+					*/
+					$paging.eq(nextNum).children().click();	//paging 버튼을 누른것 처럼 동작시킨다.
+
+					return false;
+				});
+
+				//4) play, stop 버튼을 클릭하는 경우
+				$(".slider .play_stop a").on("click",function  () {
+					var num=$(this).index();
+
+					if (num==0)	timer();			//play
+					else clearInterval(playNext);	//stop
+
+					//play, stop 버튼 보여지기와 숨기기
+					$(this).removeClass("on").siblings().addClass("on");
+
+					return false;
+				});
+			}
+			slider ();
+		});	
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<!-- 컨텐츠 -->
+		<div id="contents">
+			<div class="slider">
+				<ul class="visual">
+					<li class="list1"><a href="#">슬라이더 1</a></li>
+					<li class="list2"><a href="#">슬라이더 2</a></li>
+					<li class="list3"><a href="#">슬라이더 3</a></li>
+				</ul>
+				<div class="prev_next">
+					<a href="#" class="prev">이전</a>
+					<a href="#" class="next">다음</a>
+				</div>
+				<div class="play_stop">
+					<a href="#" class="play">play</a>
+					<a href="#" class="stop on">stop</a>
+				</div>
+				<ul class="paging">
+					<li class="on"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>
+			</div>
+
+		</div>
+		<!-- // 컨텐츠 -->
+
+	</div>
+</body>
+</html>

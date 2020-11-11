@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" >
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<meta name="author" content="SK MNS" >
+	
+	<title>layerpopup</title>
+	<style type="text/css">
+/* reset */
+*{margin:0;padding:0;}
+a {text-decoration:none;color:inherit}
+li {list-style:none}
+button {border:0;background:none;cursor:pointer}
+table { border-collapse:collapse; table-layout:fixed; width:100%;}
+img {border:0;vertical-align:top}
+caption {overflow:hidden;visibility:hidden;height:0px;text-indent:-9999px;}
+address {font-style:normal}
+input[type="text"], input[type="password"], input[type="date"], input[type="number"], textarea {border:0}
+body, html {height:100%;font-family:NanumBarunGothic,'Nanum Gothic',NanumGothic,'맑은 고딕',Dotum,AppleGothic,sans-serif; letter-spacing:-0.5px}
+
+/* btn */
+.btn {display:inline-block;padding:0 28px; height:50px;line-height:52px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px; vertical-align:middle;}
+.btnL {display:inline-block;padding:0 32px; height:50px;line-height:52px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;}
+.btn-red {background:#e60033;color:#fff;}/* width는 각자 지정 */
+.btn-gray {background:#888;color:#fff;}
+.btn-darkblue {background:#4e5a68;color:#fff}
+.btn-line {border:1px solid #fff;color:#fff}
+.btn-white {border:1px solid #ccc; color:#666}
+.btn-layer{background:white}
+
+
+/* layer-pop =============================================================== */
+.layerpop { position:fixed; display:none; width:100%; height:100%; top:0; left:0; z-index:1000; }
+/* .layer-pop .layer-bg { position:fixed; width:100%; height:100%; top:0; left:0; background:rgba(0,0,0,.5); z-index:1000; }  -  ëª¨ë°”ì¼ìš© */
+.layerpop .layer-bg { position:fixed; width:100%; height:100%; top:0; left:0; background:url(../images/blank.png); z-index:100; }
+.layerpop .layer-cnt { display:none; position:absolute;width:1200px; top:20%; left:50%; margin-left:-600px;margin-top:-110px;border:1px solid #2b2b2b; background:#fff;z-index:101;}
+.layerpop .layer-top {padding:35px 27px 0; font-size:24px; color:#333;}
+.layerpop .layer-top h2 {font-weight:bold;line-height:18px;font-size:16px;color:#222}
+.layerpop .layer-mid {padding:0 27px 65px;}
+.layerpop .layer-mid .tbl-sch tr:nth-child(2) th ,
+.layerpop .layer-mid .tbl-sch tr:nth-child(2) td {padding-top:0px}
+
+.layerpop .btn-close {position:absolute;right:30px;top:30px;width:43px;height:43px;background:url("../images/layer-close.png") no-repeat;text-indent:-9999px;}
+.layerpop .btn-close.type02 {width:50px;height:50px;right:-25px;top:-17px;background:url("../images/alert_close.png") no-repeat;}
+.layerpop .tbl-sch tr th:first-child { text-align:left }
+
+.layerpop .layer-cnt {width:auto;min-width:350px;height:220px;padding:35px; line-height:30px;text-align:center;font-size:20px;color:#333;box-sizing:border-box; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; }
+.layerpop.alert .layer-cnt .alert-cnt {height:100px;overflow:hidden}
+.layerpop.alert .layer-cnt .alert-cnt p {margin:0 auto;max-width:550px;height:100px;display:table;}
+.layerpop.alert .layer-cnt .alert-cnt > p > span {display:table-cell;vertical-align:middle;}
+.layerpop.alert .layer-cnt .alert-cnt strong {color:#000;}
+.layerpop.alert .layer-cnt .btn-box .btn {width:100%;font-weight:bold;font-size:22px;color:#000}
+.layerpop.alert .layer-cnt .btn-box {padding-top:0;}
+
+.layerpop .layer-cnt.certify {width:600px;padding:48px;box-sizing:border-box; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px;}
+.layerpop .layer-cnt .title {margin-bottom:18px;font-weight:bold;font-size:22px;color:#000}
+.layerpop .layer-cnt.certify .sub-title {margin:0 0 22px;font-size:18px;color:#666}
+
+.layerpop .layer-cnt.certify .input-txt input {padding:16px 10px 15px 20px;background:#f5f5f5;letter-spacing:0.3px;font-size:16px;}
+.layerpop .layer-cnt.certify .input-txt input::placeholder {color:#999}
+
+.layerpop .layer-cnt.certify .warn-box {margin:6px 0 20px; line-height:26px;font-size:16px;color:#666}
+.layerpop .layer-cnt.certify .warn-box .txt-red {color:#ea002c}
+.layerpop .layer-cnt.certify .warn-box + .btn {margin-top:40px;width:100%;font-size:16px}
+
+/* layer design */
+.layerpop .tbl-type1 {-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;box-shadow:none;}
+.layerpop .tbl-type1 thead tr th,
+.layerpop .tbl-type1 tbody tr td {padding:10px 8px;line-height:20px;font-size:13px;}
+.layerpop .tbl-type1 thead tr th {padding:20px 8px;font-weight:normal;}
+.layerpop .tbl-type1 tbody tr:last-child td {border-bottom:1px solid #ccc;}
+.layerpop .tbl-hor {margin-bottom:30px;}
+
+.layerpop .tbl-hor {margin-top:5px; margin-bottom:10px;}
+.layerpop .tbl-hor table thead tr th {padding:10px 0; background:#eee; font-size:14px; text-align:center }
+
+.layerpop .layer-cnt.certify .inp-check label {padding-top:6px; padding-bottom:6px}
+.layerpop .layer-cnt.certify .inp-check label .box {top:6px;}
+.warn-box {margin:20px 0; }
+
+.layerpop .layer-cnt.termbox {width:700px;padding:50px 35px 28px;box-sizing:border-box; font-size:14px;}
+.layerpop .layer-cnt.termbox .title {margin-bottom:30px;}
+.layerpop .layer-cnt.termbox .btn-box .btn {width:100%;}
+
+.scroll-box {max-height:290px; overflow:auto;}
+
+.layerpop.alert .layer-cnt.open  {top:50%;margin-left:-225px; margin-top:-110px;}
+.layerpop .layer-cnt.open  {height:auto; top:50%;margin-left:-350px; margin-top:-240px;}
+/* layer - Tworld */
+.layer-pop {display:none;position:absolute;left:50%;top:50%;width:250px;
+-webkit-border-radius:12px;-moz-border-radius:12px;border-radius:12px;background-color:#fff;box-sizing:border-box;z-index:1000}
+
+.layer-top .title {padding:20px 20px 12px;letter-spacing:-0.35px;line-height:17px;font-size:14px;}
+.layer-top .title-box h2 {border-bottom:1px solid rgba(0,0,0,0.03);}
+.layer-cnt {padding-bottom:20px;margin:0 20px;border-bottom:1px solid #e5e5e5}
+.layer-cnt .info-txt {letter-spacing:-0.3px;line-height:16px;font-size:13px;color:#959595}
+.layer-slider {display:none;position:fixed;width:100%;height:initial;left:0;bottom:-100%;background:#fff;z-index:1000;box-sizing:border-box;}
+
+.layer-slider.scrolltype {height:80%; padding-bottom:50px;overflow:hidden}
+.layer-slider.scrolltype .half-position-box {height:100%;overflow:auto;}
+.layer-slider .half-position-box {height:auto; overflow:auto;}/* 190502 수정 */
+.layer-slider .half-position-box li {position:relative;line-height:22px;padding:10px 12px 10px 16px}
+.layer-slider .half-position-box li label {display:block;font-size:15px;}
+.layer-slider .btn-more {border-top:1px solid #e5e5e5}
+.layer-slider.scrolltype .btn-more {position:fixed;bottom:0;background:#fff;z-index:10000;}
+.layer-slider .half-position-box .right-middle {right:10px;}
+.layer-btnbox:after {display:block;content:"";clear:both}
+.layer-btnbox .btn-left {float:left;width:65px;padding:17px 0px;}
+.layer-btnbox .btn-right {float:right;width:65px;padding:17px 0px;color:#f76252}
+
+
+.bg {display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:999}
+.layerpop .layer-cnt.open,.layerpop.alert .layer-cnt.open ,.layer-pop.open {display:block}
+	</style>
+	<!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
+
+	<!-- <link rel="stylesheet" href="../css/layout.css" media="screen, print" />
+	<link rel="stylesheet" href="../css/contents.css" media="screen, print" />
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/layerpop.js"></script>
+	<script src="../js/inpdesign.js"></script>
+	<script src="../js/common.js"></script> -->
+	<script src="../../assets/js/jquery.3.2.1.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		//layer-open
+		var $layer = $(".layer-pop,.layerpop"),
+			$this;
+
+		$(".open-layer").on("click",function(){	
+
+			var target = '#' + $(this).data("target"),
+			topLeft = $(target).width()/2,
+			topPos = $(target).height()/2,
+			$this = $(this);
+			
+			if($(target).hasClass("layerpop") ) {
+				$(target).show().find(".layer-cnt").addClass("open");
+			}  else {//alert layerpop
+				$(target).addClass("open").css({"marginTop":-topPos,"marginLeft":-topLeft}).attr("tabindex", 0).focus();
+			}
+
+			$(target).before("<div class='bg'></div>");
+			$(".bg").show().attr("tabindex", 0);
+		
+			return false;			
+		});
+				
+		function layerclose () {
+			setTimeout(function(){					
+
+			if($layer.hasClass("layerpop") ) {
+				$layer.hide().find(".layer-cnt").removeClass("open");
+			}  else {//alert layerpop
+				$layer.removeClass("open");
+			}
+
+				$(".bg").remove();// 20190109 수정
+
+				return false;
+			},100);									
+		}
+
+		$(".layer-close").on("click",function(){
+			layerclose ();
+			$this.focus();//$this 는 오픈 레이어 버튼
+		});
+	});
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<!-- 컨텐츠 -->
+		<a href="#" data-target="layer-alert" class="btn btn-red open-layer">alert형 레이어 팝업</a>
+		<a href="#" data-target="layer-basic" class="btn btn-red open-layer">기본형 레이어 팝업</a>
+		<button type="button" class="btn btn-gray open-layer" data-target="layer-alert-Tver">한줄알림팝업</button>
+		<!--  alert 레이어 팝업 -->
+		<div class="layerpop alert" id="layer-alert">
+			<div class="layer-cnt ">
+				<!-- alert-cnt : alert 내용 -->
+				<div class="alert-cnt">
+					<p>
+						<span>대리점 코드를 입력해주세요.</span>
+					</p>
+				</div>
+				<!-- //alert-cnt -->
+				<div class="btn-box">
+					<button type="button" class="btn btn-layer layer-close">확인</button>
+				</div>			
+				<button type="button" class="btn-close type02 layer-close">닫기</button>
+			</div>
+		</div>
+		<!--  기본형 레이어 팝업 -->
+		<div class="layerpop" id="layer-basic">
+			<div class="layer-cnt termbox">
+				<h2 class="title">개인정보 수집 및 이용에 대한 동의</h2>
+				<div class="scroll-box">
+				<div class="article-wrap">
+					<p class="term-cnt"> SK엠앤서비스주식회사(이하 &quot;회사&quot;라 함)가 제공하는<strong> 단골고객 Benefit 시스템</strong>(이하 &quot;서비스&quot;라 함)는 고객님의 개인정보를 소중하게 생각하고 있습니다. 회사는 고객님의 개인정보를 보호하기 위하여 관련법(&quot;정보통신망 이용촉진 및 정보보호 등에 관한 법률&quot;, &quot;개인정보보호법&quot; 등)을 준수하는 것 외에 아래와 같이 처리하는 개인정보에 대한 관리방침을 정하여 항상 최선을 다하고 있습니다. </p>
+					<p class="term-cnt">개인정보처리방침은 이용자가 언제나 쉽게 열람할 수 있도록 서비스 초기화면을 통해 공개하고 있으며, 개인정보 관련법령, 지침, 고시 또는 회사 정책에 따라 변경될 수 있습니다.</p>
+					<ol class="main-list">
+						<li class="article-area">
+							<h3 class="term-title">1.	개인정보의 수집∙이용목적/항목/보유기간</h3>
+							<!-- depth2 -->
+							<ul class="depth2">
+								<li>1)	회사는 적법하고 공정한 수단으로 고객님의 개인정보를 수집하고 있습니다.</li>						
+								<li>2)	회사가 수집하는 개인정보는 서비스 제공에 필요한 최소한의 정보만으로 한정되며, 고객님의 기본적 인권을 침해할 우려가 있는 민감한 개인정보(인종, 종교, 사상, 출신지, 본적지, 정치적 성향 및 범죄기록, 건강상태 및 성생활 등)는 수집하지 않습니다. </li>						
+								<li>3)	회사는 다음과 같은 이용목적을 위하여 개인정보를 수집하고 있으며, 보유기간 만료 시 지체 없이 파기합니다.</li>						
+							</ul>
+							<!-- //depth2 -->
+							<h4 class="sm-title">[개인정보 수집/이용-필수항목]</h4>
+							<div class="tbl-hor">
+								<table>
+									<caption></caption>
+									<colgroup>
+										<col style="width:20%">
+										<col style="width:40%">
+										<col style="width:20%">
+										<col style="width:20%">
+									</colgroup>
+									<thead>
+										<tr>
+											<th>구분</th>
+											<th>개인정보 수집/이용 항목</th>
+											<th>수집/이용 목적</th>
+											<th>보유 및 이용기간</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>로그인 및 쿠폰발송</td>
+											<td>성명, 휴대전화번호 </td>
+											<td>로그인 처리 및 쿠폰발송</td>
+											<td>업무계약 종료시까지</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="term-cnt">
+								<p>※ 상기의 개인정보 보유기간에도 불구하고 관계 법령에서 정한 보관목적과 기간에 따라 해당 기간동안 추가로 보관될 수 있습니다. </p>
+								<ol class="depth2">
+									<li>가. 통신사실확인자료를 제공할 때 필요한 로그기록자료, IP주소 등: 3개월 (통신비밀보호법)</li>
+									<li>나. 계약 또는 청약철회 등에 관한 기록 : 5년(전자상거래법)</li>
+									<li>다. 대금결제 및 재화 등의 공급에 관한 기록 : 5년(전자상거래법)</li>
+									<li>라. 소비자의 불만 또는 분쟁처리에 관한 기록 : 3년(전자상거래법)</li>
+									<li>마. 표시 · 광고에 관한 기록 : 6개월(전자상거래법)</li>
+									<li>바. 신용정보의 수집 · 처리 및 이용 등에 관한 기록 : 3년(신용정보법)</li>
+									<li>사. 전자금융 거래에 관한 기록 : 5년(전자금융거래법)</li>
+									<li>아. 세법이 규정하는 모든 거래에 관한 장부 및 증빙서류 : 5년(국세기본법)</li>
+								</ol>
+							</div>
+						</li>
+						<li class="article-area">
+							<h3 class="term-title">2.	개인정보의 파기절차 및 방법</h3>
+							<p class="term-cnt">회사는 수집한 개인정보의 이용목적이 달성된 후에는 보관기간 및 이용기간에 따라 해당 정보를 바로 파기합니다. 파기 절차와 방법은 다음과 같습니다.</p>
+							<!-- depth2 -->
+							<ol>
+								<li>1)	파기 절차 : 고객님이 회원가입 등을 위해 입력한 정보는 목적이 달성된 후 별도의 DB로 옮겨져(종이의 경우 별도의 서류함) 내부 방침 및 기타 관련 법령에 의한 정보보호 사유(&quot;개인정보의 수집∙이용목적/항목/보유기간&quot; 참조)에 따른 보유기간이 지난 후에 삭제되거나 파기합니다.</li>
+								<li>2)	파기 방법 : 종이에 출력된 개인정보는 분쇄기로 분쇄 또는 소각하거나 화학약품으로 용해하여 파기합니다. 그리고 전자적 파일 형태로 저장된 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제합니다.</li>
+							</ol>
+							<!-- //depth2 -->
+						</li>
+						<li class="article-area">
+							<h3 class="term-title">3.	만 14세 미만 아동의 개인정보보호</h3>
+							<p class="term-cnt">1) 만14세 미만 아동의 개인정보를 수집하지 않으며, 서비스 이용이 불가능합니다. </p>
+						</li>
+						<li class="article-area">
+							<h3 class="term-title">4.	개인정보의 처리 위탁</h3>
+							<!-- depth2 -->
+							<ol>
+								<li>1)	회사는 기본적인 서비스의 제공, 서비스의 유지/관리, 고객 상담, 고객 편의 제공 등 원활한 업무 수행을 위하여 다음과 같이 개인정보 처리업무를 외부 전문업체(또는 회사의 다른 서비스)에 위탁하여 운영하고 있습니다.</li>
+								<li>2)	위탁업무의 내용이나 수탁자가 변경될 경우에는 본 개인정보 처리방침을 통하여 공개하고 있습니다. </li>
+								<li>3)	회사의 개인정보 위탁처리 기관 및 위탁업무 내용은 아래와 같습니다.
+									<div class="tbl-hor">
+										<table>
+											<caption></caption>
+											<colgroup>
+												<col style="width:30%">
+												<col style="width:30%">
+												<col style="width:40%">
+											</colgroup>
+											<thead>
+												<tr>
+													<th>위탁 받는 자</th>
+													<th>위탁업무 내용</th>
+													<th>위탁업무 내용</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>NHN한국사이버결제 주식회사</td>
+													<td>결제처리 서비스</td>
+													<td>회원탈퇴 혹은 위탁계약 종료 시까지</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</li>
+							</ol>
+							<!-- //depth2 -->
+						</li>
+						<li class="article-area">
+							<h3 class="term-title">5.	이용자 및 법정 대리인의 권리와 그 행사방법</h3>
+							<!-- depth2 -->
+							<ol>
+								<li>1)	이용자 및 법정대리인은 언제든지 등록되어 있는 이용자의 개인정보를 열람(조회)하거나 정정(수정) 하실 수 있습니다. </li>
+								<li>2)	이용자의 개인정보 열람(조회), 정정(수정)을 위해서는 로그인 후, 'MY' 페이지를 통해 이용이 가능합니다. </li>
+								<li>3)	개인정보 열람(조회), 정정(수정), 삭제를 언제든지 요청할 수 있으며 회사는 지체없이 이러한 요청에 필요한 조치를 합니다.</li>
+								<li>4)	개인정보 열람, 정정, 삭제 등의 절차는 아래와 같습니다. <br>요청 접수(아래 방법) → 본인 또는 법정대리인 확인 → 요구사항 조치 → 처리결과 안내<br>
+									<ul class="bar-list">
+										<li>이메일 접수: <a href="mailto:skmns.sktcoupon@sk.com">skmns.sktcoupon@sk.com</a></li>
+									</ul>
+								</li>
+							</ol>
+							<!-- //depth2 -->
+						</li>
+					</ol>
+				</div>
+				</div>
+				<div class="btn-box">
+					<button type="button" class="btn btn-layer layer-close">확인</button>
+				</div>
+
+				<button type="button" class="btn-close type02 layer-close">닫기</button>
+			</div>
+		</div>
+
+		<!-- layer alert type2 - Tworld  -->
+		<div class="layer-pop alert" id="layer-alert-Tver" tabindex="1">
+			<div class="layer-top">
+				<h2 class="title">알림</h2>	
+			</div>
+			<div class="layer-cnt">
+				<p class="info-txt">받는 분 번호를 입력해 주세요.</p>		
+			</div>
+			<div class="layer-btnbox">
+				<button type="button" class="btn-right layer-close">확인</button>
+			</div>
+		</div>	
+		<!-- // 컨텐츠 -->
+	</div>
+</body>
+</html>

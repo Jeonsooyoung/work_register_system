@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8" />
+  <title> 왼쪽 고정 배너 </title>
+  <style type="text/css">
+	body{margin:0px;padding:0px}
+	a{text-decoration:none}
+
+	#wrap{width:1000px;height:2000px;margin:0px auto}
+	.banner{position:absolute;width:200px;height:200px;background:#efefef}
+	#left1{top:100px;left:-180px;}
+	#left2{top:400px;left:0px;}
+	.banner .btn{position:absolute;top:0px;bottom:0px;right:0px;width:20px;background:#000;color:#fff}
+	.banner.on .btn{background:#000}
+  </style>
+  <script type="text/javascript" src="../../assets/js/jquery.3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/left.js"></script>
+ </head>
+
+ <body>
+  <div id="wrap">
+	<div class="banner" id="left1">
+		<div class="cnt"></div>
+		<a class="btn" href="#">버튼 닫힘</a>
+	</div>
+	<div class="banner on" id="left2"><!-- 열려진 배너에 .on 추가 -->
+		<div class="cnt"></div>
+		<a class="btn" href="#">버튼 열림</a>
+	</div>
+  </div>
+ </body>
+</html>
