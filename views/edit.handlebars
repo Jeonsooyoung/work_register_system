@@ -1,4 +1,3 @@
-<h1 class="text-center mb-3">{{title}}</h1>
 <div class="wrapper" id="app">
 	<div>
     <!-- sidebar -->
@@ -12,7 +11,7 @@
         </div>
         <ul class="nav">
           <li class="active">
-            <a href="/index">
+            <a href="/">
               <i class="pe-7s-graph"></i>
               <p>업무 내역 기록</p>
             </a>
@@ -116,7 +115,7 @@
                           <input type="text" name="tasks" id="tasks" value="{{lists.tasks}}" class="form-control">
                         </div>
 
-                        <button type="submit" class="ui fluid large teal submit button">Save</button>
+                        <button type="submit" class="btn center-block d-inline-block" style="margin-top:10px;">Save</button>                      
                       </div>
 
                       {{!-- <div class="ui error message">아이디를 입력해주세요.</div> --}}
@@ -129,35 +128,6 @@
             </div>
           </div>
         </div>
-        <div class="content">
-          <!-- 기존 정보 불러오기 -->
-          <ul class="ui relaxed divided items">
-            {{#each lists}}
-            <li class="item">
-              <div class="content">
-                <h3 class="header">{{this.teamName}}</h3>
-                <div class="meta">
-                  <p>업무 확인일 : {{this.getDate}}</p>
-                  <span>작업 예정일 : {{this.startDate}} ~ {{this.dueDate}}</span>
-                  <p>담당자 : {{this.manager}} 매니저</p>
-                </div>
-                <div class="description">
-                  <p>업무 내용</p>
-                  <strong>{{this.tasks}}</strong>
-                </div>
-                <div class="extra">
-                  <a href="/edit/{{this._id}}" class="ui right floated primary button revise-btn">
-                    <i aria-hidden="true" class="fa fa-trash"></i>
-                    수정</a>
-                  <a href="/{{this._id}}" class="ui right floated primary button del-btn">
-                    <i aria-hidden="true" class="fa fa-pencil"></i></i>
-                    삭제</a>
-                </div>
-              </div>
-            </li>
-            {{/each}}
-          </ul>
-        </div> 
         <footer class="footer">
           <div class="container-fluid">
     
@@ -171,43 +141,3 @@
       </div>
   </div>
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        var data = {
-          series: [3, 8]
-        };
-
-        var sum = function(a, b) { return a + b };
-
-        new Chartist.Pie('.ct-chart', data, {
-          labelInterpolationFnc: function(value) {
-            return Math.round(value / data.series.reduce(sum) * 100) + '%';
-          }
-        });
-
-        var date = new Date(); 
-        var year = date.getFullYear(); 
-        var month = new String(date.getMonth()+1); 
-        var day = new String(date.getDate()); 
-
-        // 한자리수일 경우 0을 채워준다. 
-        if(month.length == 1){ 
-          month = "0" + month; 
-        } 
-        if(day.length == 1){ 
-          day = "0" + day; 
-        } 
-
-        $.notify({
-            icon: 'pe-7s-gift',
-            message: "<strong>"+ year + "년 " + month + "월 " + day +"일</strong> 개인 작업물 내역입니다. "
-
-          },{
-              type: 'info',
-              timer: 4000
-          });
-
-    });
-</script>

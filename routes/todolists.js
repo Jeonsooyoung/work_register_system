@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Todo = require('../models/Todolist')
 const moment = require('moment');
+const mongoose = require('mongoose');
 
 //const mongoose = require('mongoose')
 //const todolists = mongoose.model('list',listSchema)
@@ -140,6 +141,7 @@ router.get('/edit/:id', (req, res, next) => {
   console.log(req.params.id);
   // res.send(req.params.id);
   Todo.findOneAndUpdate({_id: req.params.id},req.body, { new: true }, (err, docs)=>{
+      mongoose.set('useFindAndModify', false);
       console.log(docs);
       
       console.log(docs.name);

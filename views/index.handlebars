@@ -12,7 +12,7 @@
         </div>
         <ul class="nav">
           <li class="active">
-            <a href="/index">
+            <a href="/">
               <i class="pe-7s-graph"></i>
               <p>업무 내역 기록</p>
             </a>
@@ -139,12 +139,12 @@
                 <h3 class="header">{{this.teamName}}</h3>
                 <div class="meta">
                   <p>업무 확인일 : {{this.getDate}}</p>
-                  <span>작업 예정일 : {{this.startDate}} ~ {{this.dueDate}}</span>
+                  <p><strong style="font-weight:500">작업 예정일 : {{this.startDate}} ~ {{this.dueDate}}</strong></p>
                   <p>담당자 : {{this.manager}} 매니저</p>
                 </div>
                 <div class="description">
                   <p>업무 내용</p>
-                  <strong>{{this.tasks}}</strong>
+                  <p>{{this.tasks}}</p>
                 </div>
                 <div class="extra">
                   <a href="/edit/{{this._id}}" class="ui right floated primary button revise-btn">

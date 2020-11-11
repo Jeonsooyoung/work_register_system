@@ -3,18 +3,18 @@
 	<div class="sidebar" data-color="red" data-image="assets/img/coffee.jpg">
 		<div class="sidebar-wrapper">
 			<div class="logo">
-					<a href="#" class="simple-text">
-							작업 관리
-					</a>
+				<a href="#" class="simple-text">
+						작업 관리
+				</a>
 			</div>
 			<ul class="nav">
-				<li class="active">
-					<a href="/index">
+				<li>
+					<a href="/">
 					<i class="pe-7s-graph"></i>
 					<p>업무 내역 기록</p>
 					</a>
 				</li>
-				<li>
+				<li class="active">
 					<a href="/dashboard">
 					<i class="pe-7s-science"></i>
 					<p>오늘의 체크리스트</p>
@@ -100,15 +100,15 @@
 								<td class="table-no text-center">{{@key}}</td>
 								<td>
 									<div class="list">
-									<p class="list=top" style="font-weight:bold;font-size:22px; color:#333">{{this.teamName}}</p>
+									<p class="list-top" style="font-weight:bold;font-size:22px; color:#333">{{this.teamName}}</p>
 									<div class="meta">
-										<p>업무 확인일 : {{this.getDate}}</p>
-										<p>작업 예정일 : {{this.startDate}} ~ {{this.dueDate}}</p>
-										<p>담당자 : {{this.manager}} 매니저</p>
+										<p style="margin:0; margin-bottom:5px;">업무 확인일 : {{this.getDate}}</p>
+										<p style="margin:0; margin-bottom:5px;">작업 예정일 : {{this.startDate}} ~ {{this.dueDate}}</p>
+										<p style="margin:0; margin-bottom:5px;"	>담당자 : {{this.manager}} 매니저</p>
 									</div>
 									<div class="description">
-										<p style="font-weight:600;">&lt업무 내용&gt</p>
-										<p style="font-weight:500; font-size:16px;">{{this.tasks}}</p>
+										<p>&lt업무 내용&gt</p>
+										<p>{{this.tasks}}</p>
 									</div>
 									</div>
 								</td>
@@ -133,37 +133,6 @@
 		</footer>
   </div>
 
-	<!-- 추가 팝업 -->
-	<popup :show.sync="pop_add">
-		<!--할일 추가하기-->
-		<div slot>
-			<div class="task_register_box">
-				<span class="input-add">
-					<label for="title" class="title">할일</label>
-					<input type="text" v-model="memo" class="inp-txt" placeholder="할일을 입력해주세요." />
-				</span>
-				<button type="button" class="btn btn-fill"
-				@click="add_layer()" value="보내기">할일 추가하기</button>
-			</div>
-		</div>
-	</popup>
-	<!-- //추가 팝업 -->
-
-	<!-- 수정 팝업 -->
-	<popup :show.sync="pop_revise">
-		<!-- 할일 수정하기-->
-		<div slot>
-			<div class="task_register_box">
-				<span class="input-add">
-					<label for="title" class="title">할일</label>
-					<input type="text" v-model="memo" class="inp-txt" placeholder="할일을 입력해주세요." />
-				</span>
-				<button type="button" class="btn btn-fill btn-warning"
-				@click="edit_layer_btn(memo,index)" value="보내기">할일 수정하기</button>
-			</div>
-		</div>
-	</popup>
-	<!-- //수정 팝업 -->
 </div>
 
 <!-- 일정 추가 MODAL -->
