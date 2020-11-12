@@ -51,5 +51,6 @@ ul,ol {list-style:none; vertical-align:top;}
 @media (max-width: 640px) {
     table.fc-header,
     .fc-header td {display:block;}
+    .card .content a {word-break:break-all}
 
 }
