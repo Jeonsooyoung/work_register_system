@@ -52,56 +52,37 @@
 		</nav>
 
 
-		<div class="content">
-			<div class="container-fluid">
-				<div class="row">
-					<div clas="col-md-12 col-lg-6">
-						<div class="card">
-						<div class="header">
-							<h4 class="title">업무 내역 기록</h4>
-							{{!-- <span class="sub-tit">전체 할일 {{list.length}} / 완료된 할일 : {{countDone}} / 남은 할일 : {{list.length - countDone}} </span> --}}
-						</div>
-						<div class="content table-responsive">
-							<table class="table table-hover table-striped">
-							<colgroup>
-								<col style="width: 10%;">
-								<col style="width: auto;">
-							</colgroup>
-							<thead>
-								<tr>
-								<th>No</th>
-								<th>기타사항(기록)</th>
-								</tr>
-							</thead>
-							<tbody>
-								{{#each lists}}
-								<tr>
-								<td class="table-no text-center">{{@key}}</td>
-								<td>
-									<div class="list">
-									<p class="list-top" style="font-weight:bold;font-size:22px; color:#333">{{this.teamName}}</p>
-									<div class="meta">
-										<p style="margin:0; margin-bottom:5px;">업무 확인일 : {{this.getDate}}</p>
-										<p style="margin:0; margin-bottom:5px;">작업 예정일 : {{this.startDate}} ~ {{this.dueDate}}</p>
-										<p style="margin:0; margin-bottom:5px;"	>담당자 : {{this.manager}} 매니저</p>
-									</div>
-									<div class="description">
-										<p>&lt업무 내용&gt</p>
-										<p>{{this.tasks}}</p>
-									</div>
-									</div>
-								</td>
-								</tr>
-								{{/each}}
-							</tbody>
-							</table>
-						</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div class="content">
+          <div class="card" style="padding:15px 3%;">
+            <!-- 기존 정보 불러오기 -->
+            <ul class="ui relaxed divided items">
+              {{#each lists}}
+              <li class="item">
+                <div class="content">
+                  <h3 class="header">{{this.teamName}}</h3>
+                  <div class="meta">
+                    <p>업무 확인일 : {{this.getDate}}</p>
+                    <p><strong style="font-weight:500">작업 예정일 : {{this.startDate}} ~ {{this.dueDate}}</strong></p>
+                    <p>담당자 : {{this.manager}} 매니저</p>
+                  </div>
+                  <div class="description">
+                    <p>업무 내용</p>
+                    <p>{{this.tasks}}</p>
+                  </div>
+                  <div class="extra">
+                    <a href="/edit/{{this._id}}" class="ui right floated primary button revise-btn">
+                      <i aria-hidden="true" class="fa fa-pencil"></i>
+                      수정</a>
+                    <a href="/{{this._id}}" class="ui right floated primary button del-btn">
+                      <i aria-hidden="true" class="fa fa-trash"></i></i>
+                      삭제</a>
+                  </div>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div> 
 		<footer class="footer">
 				<div class="container-fluid">
 
