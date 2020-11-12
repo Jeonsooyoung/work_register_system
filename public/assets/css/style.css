@@ -32,11 +32,14 @@ ul,ol {list-style:none; vertical-align:top;}
 #content > * {width:800px; margin:0 auto;}
 .card .description{margin-top:15px;}
 
+.ui.items {padding:0; }
+.ui.items>.item>.content>.header:not(.ui) {padding-top:0; padding-left:30px; margin:10px 5px 5px; background:url("../img/group.png") no-repeat left center; background-size:16px auto;}
+
 .card .description p:first-child,
 .ui.items>.item>.content .description p:first-child {font-weight:bold}
 .card .description p:last-child,
 .ui.items>.item>.content .description p:last-child {font-size:16px;}
-.ui.items>.item>.content .meta p {margin:0; margin-bottom:5px; font-size:14px; color:#333}
+.ui.items>.item>.content .meta p {margin:0; margin-bottom:5px; font-size:15px; color:#333}
 .card .description p {margin:0}
 @media (max-width: 991px) {
     .inp-txt {width:100%}

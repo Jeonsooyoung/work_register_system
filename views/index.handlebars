@@ -72,7 +72,7 @@
                         </div>
                         <div class="field input">
                           <label for="manager">담당자</label>
-                          <input type="text" name="manager" id="manager" value="아무개" class="form-control">
+                          <input type="text" name="manager" id="manager" value="전수영" title="기획자/PM 매니저" class="form-control">
                         </div>
                         <div class="field input">
                           <label for="getDate">업무 확인일 설정</label>
@@ -86,10 +86,10 @@
                           <label for="dueDate">완료 예정일 설정</label>
                           <input type="text" name="dueDate" id="dueDate" value="2020-10-10" class="form-control">
                         </div>
-                        <div class="field input">
+                        {{!-- <div class="field input">
                           <label for="endDate">완료일 설정</label>
                           <input type="text" name="endDate" id="endDate" value="2020-10-10" class="form-control">
-                        </div>
+                        </div> --}}
                         <div class="field input">
                           <label for="tasks">업무 내용</label>
                           <input type="text" name="tasks" id="tasks" value="[쿠폰소다] 룰렛이벤트 퍼블리싱 : 10월 매일매일 선착순 룰렛" class="form-control">
@@ -110,33 +110,35 @@
           </div>
         </div>
         <div class="content">
-          <!-- 기존 정보 불러오기 -->
-          <ul class="ui relaxed divided items">
-            {{#each lists}}
-            <li class="item">
-              <div class="content">
-                <h3 class="header">{{this.teamName}}</h3>
-                <div class="meta">
-                  <p>업무 확인일 : {{this.getDate}}</p>
-                  <p><strong style="font-weight:500">작업 예정일 : {{this.startDate}} ~ {{this.dueDate}}</strong></p>
-                  <p>담당자 : {{this.manager}} 매니저</p>
+          <div class="card" style="padding:15px 3%;">
+            <!-- 기존 정보 불러오기 -->
+            <ul class="ui relaxed divided items">
+              {{#each lists}}
+              <li class="item">
+                <div class="content">
+                  <h3 class="header">{{this.teamName}}</h3>
+                  <div class="meta">
+                    <p>업무 확인일 : {{this.getDate}}</p>
+                    <p><strong style="font-weight:500">작업 예정일 : {{this.startDate}} ~ {{this.dueDate}}</strong></p>
+                    <p>담당자 : {{this.manager}} 매니저</p>
+                  </div>
+                  <div class="description">
+                    <p>업무 내용</p>
+                    <p>{{this.tasks}}</p>
+                  </div>
+                  <div class="extra">
+                    <a href="/edit/{{this._id}}" class="ui right floated primary button revise-btn">
+                      <i aria-hidden="true" class="fa fa-pencil"></i>
+                      수정</a>
+                    <a href="/{{this._id}}" class="ui right floated primary button del-btn">
+                      <i aria-hidden="true" class="fa fa-trash"></i></i>
+                      삭제</a>
+                  </div>
                 </div>
-                <div class="description">
-                  <p>업무 내용</p>
-                  <p>{{this.tasks}}</p>
-                </div>
-                <div class="extra">
-                  <a href="/edit/{{this._id}}" class="ui right floated primary button revise-btn">
-                    <i aria-hidden="true" class="fa fa-trash"></i>
-                    수정</a>
-                  <a href="/{{this._id}}" class="ui right floated primary button del-btn">
-                    <i aria-hidden="true" class="fa fa-pencil"></i></i>
-                    삭제</a>
-                </div>
-              </div>
-            </li>
-            {{/each}}
-          </ul>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
         </div> 
         <footer class="footer">
           <div class="container-fluid">

@@ -49,7 +49,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">업무 내역 기록</a>
+              <a class="navbar-brand" href="#">업무 내역 수정</a>
             </div>
           </div>
         </nav>
@@ -60,7 +60,7 @@
               <div clas="col-md-12 col-lg-12">
                 <div class="card">
                   <div class="header">
-                    <h4 class="title">업무 입력</h4>
+                    <h4 class="title">업무 수정</h4>
                   </div>
                   <div class="content">
                     <form action="/edit/{{lists._id}}" id="form" method="POST" class="mb-4">
@@ -84,10 +84,6 @@
                         <div class="field input">
                           <label for="dueDate">완료 예정일 설정</label>
                           <input type="text" name="dueDate" id="dueDate" value="{{lists.dueDate}}" class="form-control">
-                        </div>
-                        <div class="field input">
-                          <label for="endDate">완료일 설정</label>
-                          <input type="text" name="endDate" id="endDate" value="{{lists.endDate}}" class="form-control">
                         </div>
                         <div class="field input">
                           <label for="tasks">업무 내용</label>
