@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>아코디언메뉴</title>
+  <style type="text/css">
+	body {
+		margin:0; padding:0;
+		padding:20px; 
+	}
+	.accordion input[type="checkbox"] {
+		display:none
+	}
+	.accordion input[type="checkbox"] + label {
+		position:relative;
+		display:block;
+		padding:20px;
+		border:1px solid #000; 
+		border-bottom:none;
+		font-size:16px; 
+		font-weight:bold;
+		color:#fff;
+		background:lightblue;
+	}
+	.accordion input[type="checkbox"] + label .btn-acc-open{		
+		position:absolute; 
+		display:block; 
+		right:20px;
+		top:50%;
+		transform:translateY(-50%);		
+		width:20px; 
+		height:20px; 
+		background:red;
+	}
+	.accordion input[type="checkbox"] + label + .accordion-cnt {
+		display:block;
+		height:0;
+		max-height:0; 
+		overflow:hidden;
+		border:1px solid #000;
+		box-sizing:border-box;
+		transition:all 0.5s; 
+	}
+	.accordion input[type="checkbox"]:checked + label + .accordion-cnt {		
+		height:100px;
+		max-height:200px;
+	}
+
+
+	
+  </style>
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+ </head>
+ <body>
+	<div class="accordion">
+		<input type="checkbox" name="accordion" id="accordion1"/>
+		<label for="accordion1">
+			<span class="txt">메뉴 열림</span>
+			<span class="btn-acc-open"></span>
+		</label>
+		<div class="accordion-cnt">
+			1
+		</div>
+	</div>
+
+	<div class="accordion">
+		<input type="checkbox" name="accordion" id="accordion2"/>
+		<label for="accordion2">
+			<span class="txt">메뉴 열림</span>
+			<span class="btn-acc-open"></span>
+		</label>
+		<div class="accordion-cnt">
+			2
+		</div>
+	</div>	
+ </body>
+</html>
