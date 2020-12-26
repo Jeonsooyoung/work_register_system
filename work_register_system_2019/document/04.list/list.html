@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" >
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<meta name="author" content="SK MNS" >
+
+	<title>list 종류</title>
+	<link href="../../assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>	
+	<style type="text/css">
+	html,body,p,h1,h2,h3,h4,h5,h6,menu,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select,hr { margin:0;padding:0; }
+	body { background-color:#eaeef1; font-size:0.75em; font-family:'Noto Sans KR', '돋움',Dotum,AppleGothic,sans-serif; }
+	input,textarea,select,button,table{ font-size:1em; }
+	img,fieldset,button{ border:0; }
+	img, input, select { vertical-align:middle; }
+	ul,ol { display:inline-block; list-style:none; width:100%; vertical-align:top;}
+	em,address,i { font-style:normal; }
+	a { text-decoration:none; vertical-align:middle; }
+	a:hover,a:active,a:focus { text-decoration:none; }
+	button { display:inline-block;overflow:hidden;border:0;background:none;cursor:pointer; font-family:'Noto Sans KR', '돋움',Dotum,AppleGothic,sans-serif;}
+	button > span { position:relative; }
+	table{ border-collapse:collapse;border-spacing:0; width:100%; }
+	.hide { position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; filter:alpha(opacity=0); zoom:1; text-indent:-9999px; z-index:0; overflow:hidden; }
+	caption { height: 1px; overflow: hidden; line-height: 0; margin-top: -1px; color: transparent; }
+	textarea { resize:none; vertical-align:middle; }
+
+	#wrap {width:500px; margin:0 auto}
+	/* list 종류 */
+	.dotlist > li {position:relative;padding-left:10px;line-height:20px;letter-spacing:-.25px;word-break:keep-all; text-align:left;}
+	.dotlist > li:before {display:inline-block;position:absolute;top:9px;left:0px;width:2px;height:2px; border-radius:50%; background:#000; content:""; }
+
+	.numlist > li {position:relative;line-height:20px;letter-spacing:-.25px;word-break:keep-all;}
+	.numlist > li:before {display:inline-block; line-height:15px; margin:2px 3px 0 1px; content:""; }
+	.numlist > li:first-child:before { content:"①"; }
+	.numlist > li:nth-child(2):before { content:"②"; }
+	.numlist > li:nth-child(3):before { content:"③"; }
+	.numlist > li:nth-child(4):before { content:"④"; }
+	.numlist > li:nth-child(5):before { content:"⑤"; }
+
+	.barlist li {position:relative; padding-left:12px; }
+	.barlist li:before {display:block; position:absolute; left: 0; top: 8px; width:6px; height:1px; background:#666;  content:"" }
+
+	.referlist > li {position:relative;line-height:20px;letter-spacing:-.25px;word-break:keep-all;}
+	.referlist > li:before {display:inline-block; line-height:15px; margin:2px 3px 0 1px; content:""; }
+	.referlist > li:before { content:"※"; }
+	</style>
+	<!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
+
+	<!-- <link rel="stylesheet" href="../css/layout.css" media="screen, print" />
+	<link rel="stylesheet" href="../css/contents.css" media="screen, print" />
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/layerpop.js"></script>
+	<script src="../js/inpdesign.js"></script>
+	<script src="../js/common.js"></script> -->
+</head>
+<body>
+	<div id="wrap">
+		<!-- 컨텐츠 -->
+		<div id="contents">
+			<div class="jumbotron">
+				<h2 class="display-5">리스트 모음</h2>
+			</div>
+			<div class="card">
+				<div class="header">
+					<h4 class="title">리스트 type01 (dotlist)</h4>
+				</div>
+				<div class="content"><!-- dotlist -->
+					<ul class="dotlist">
+						<li>비상계단 그룹</li>
+						<li>비상계단 그룹</li>
+						<li>비상계단 그룹</li>
+					</ul>
+					<!-- //dotlist --></div>
+			</div>
+
+			<div class="card">
+				<div class="header">
+					<h4 class="title">리스트 type02 (starlist)</h4>
+				</div>
+				<div class="content">
+					<!-- numlist -->
+					<ul class="numlist">
+						<li>비상계단 그룹</li>
+						<li>비상계단 그룹</li>
+						<li>비상계단 그룹</li>
+						<li>비상계단 그룹</li>
+						<li>비상계단 그룹</li>
+					</ul>
+					<!-- //numlist --></div>
+			</div>
+
+			<div class="card">
+				<div class="header">
+					<h4 class="title">리스트 type03 (barlist)</h4>
+				</div>
+				<div class="content">
+					<!-- barlist -->
+					<ul class="barlist">
+						<li>비상계단 그룹</li>
+						<li>비상계단 그룹</li>
+						<li>비상계단 그룹</li>
+						<li>비상계단 그룹</li>
+						<li>비상계단 그룹</li>
+					</ul>
+					<!-- //barlist --></div>
+			</div>
+
+			<div class="card">
+				<div class="header">
+					<h4 class="title">리스트 type04 (referlist)</h4>
+				</div>
+				<div class="content">
+					<!-- referlist -->
+					<ul class="referlist">
+						<li>비상계단 그룹</li>
+						<li>비상계단 그룹</li>
+						<li>비상계단 그룹</li>
+						<li>비상계단 그룹</li>
+						<li>비상계단 그룹</li>
+					</ul>
+					<!-- //referlist --></div>
+			</div>
+		</div>
+		<!-- // 컨텐츠 -->
+
+	</div>
+</body>
+</html>

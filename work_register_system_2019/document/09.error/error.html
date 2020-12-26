@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" >
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<meta name="author" content="SK MNS" >
+	
+	<title>오류화면</title>
+	<style type="text/css">
+	
+	.error-wrap {margin-top:32px; padding:288px 0 145px;text-align:center; background:#fff url("../../assets/img/warning.png") no-repeat top 108px center ; background-size:160px;}
+	.error-wrap .main-txt {margin:14px 0 28px; }
+	.error-wrap .main-sm-txt {margin:0 0 15px; }
+	.error-wrap .btn-group {width:445px; margin:0 auto; }
+	.error-wrap .btn-group .btn-l {height:46px; line-height:34px;}
+	.error-wrap .btn-group .btn-l:first-child:last-child {width:215px}
+
+.btn-xl  {display:inline-block;padding: 5px 20px;height:54px;line-height:44px;font-size:18px;background:#fff;color:#000;border:1px solid #c8c8c8;box-sizing:border-box;border-radius:2px;vertical-align:middle;letter-spacing:-0.05em;}
+.btn-l { display:inline-block; height:36px; padding:5px 20px; font-size:15px; line-height:24px; background:#fff; color:#262626; border:1px solid #666; box-sizing:border-box; border-radius:2px; vertical-align:middle; letter-spacing:-0.05em;}/* 단독으로 사용할 경우 고려하여  padding 이 넓음 (table 내, btn-top 등등)*/
+.btn-m { display:inline-block; height:28px; padding:5px 16px; font-size:13px; line-height:16px; background:#fff; color:#262626; border:1px solid #ccc; box-sizing:border-box; border-radius:4px; vertical-align:middle; letter-spacing:-0.05em;}
+.btn-s { display:inline-block; height:22px; padding:2px 6px; font-size:11px; line-height:16px; background:#fff; color:#262626; border:1px solid #666; box-sizing:border-box; border-radius:4px; vertical-align:middle; letter-spacing:-0.05em;}
+.btn-l:hover, .btn-m:hover, .btn-s:hover { background-color:#414255; color:#fff; border-color:#414255; }
+.btn-l[disabled], .btn-m[disabled], .btn-s[disabled], .btn-l.disabled, .btn-m.disabled, .btn-s.disabled { background:#f8f8f8 !important; color:#999 !important; border-color:#ccc !important; }
+
+	</style>
+	<!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
+
+	<!-- <link rel="stylesheet" href="../css/layout.css" media="screen, print" />
+	<link rel="stylesheet" href="../css/contents.css" media="screen, print" />
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/layerpop.js"></script>
+	<script src="../js/inpdesign.js"></script>
+	<script src="../js/common.js"></script> -->
+</head>
+<body style="background:#eee;">
+	<div id="wrap">
+		<!-- 컨텐츠 -->
+		<div id="contents">
+			<!-- 오류 화면 -->
+			<div class="error-wrap">
+					<p class="main-txt">요청하신 페이지로 이동할 수 없습니다.</p>
+					<p class="sub-txt">접근 권한이 없거나 일시적인 연결 오류가 발생하였습니다. <br>지속적으로 문제 발생 시 관리자에게 문의해주세요.</p>
+					<div class="btn-group row">
+						<span><button type="button" class="btn-l"><span>페이지 새로고침</span></button></span>
+						<span><button type="button" class="btn-l btn-darkblue"><span>이전 페이지로 돌아가기</span></button></span>
+					</div>
+			</div>		
+			<!-- //오류 화면 -->
+
+		</div>
+		<!-- // 컨텐츠 -->
+
+	</div>
+</body>
+</html>

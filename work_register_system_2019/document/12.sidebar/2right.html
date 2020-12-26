@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8" />
+  <title> 오른쪽 고정 배너 </title>
+  <style type="text/css">
+	body{margin:0px;padding:0px}
+	a{text-decoration:none}
+
+	#wrap{width:1000px;height:2000px;margin:0px auto}
+	.banner{position:absolute;right:0px;height:200px;background:#efefef;overflow:hidden;}
+	/* absolute일 경우 rigth 좌표값이 마이너스이면 가로 스크롤바 생성.
+	단 fixed는 상관없다 */
+	#right1{top:100px;width:20px}
+	#right2{top:400px;width:200px}
+	.banner .cnt{padding-left:20px}
+	.banner .btn{position:absolute;top:0px;bottom:0px;left:0px;width:20px;background:#000;color:#fff}
+	.banner.on .btn{background:#000}
+  </style>
+  <script type="text/javascript" src="../../assets/js/jquery.3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/right.js"></script>
+ </head>
+
+ <body>
+  <div id="wrap">
+	<div class="banner" id="right1">
+		<div class="cnt"></div>
+		<a class="btn" href="#">버튼</a>
+	</div>
+	<div class="banner on" id="right2"><!-- 열려진 배너에 .on 추가 -->
+		<div class="cnt"></div>
+		<a class="btn" href="#">버튼</a>
+	</div>
+  </div>
+ </body>
+</html>

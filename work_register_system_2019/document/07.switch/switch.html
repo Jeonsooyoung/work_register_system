@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+$(function() {
+
+
+});
+</script>
+<style>
+.switch {position:relative;display: inline-block;width:60px;height:34px;}
+.switch input {opacity:0;width:0; height:0;}
+.switch .slider {position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background-color:#ccc; -webkit-transition:.4s; transition:.4s;}
+.switch .slider:before {position:absolute; content:""; height:26px; width:26px; left:4px; bottom:4px; background-color:white; -webkit-transition:.4s; transition:.4s;}
+.switch .slider:after {display:block; position:absolute; height:100%; left:unset; right:5px; top:50%;margin-top:-8px; line-height:16px;font-size:13px; color:#fff; content:"OFF"}
+.switch input:checked + .slider{background-color:#2196F3;}
+.switch input:focus + .slider {box-shadow:0 0 1px #2196F3;}
+.switch input:checked + .slider:before {-webkit-transform:translateX(26px);-ms-transform:translateX(26px);transform:translateX(26px);}
+.switch input:checked + .slider:after {left:5px; right:unset; content:'ON'}
+
+/* Rounded sliders */
+.switch .slider.round {border-radius:34px;}
+.switch .slider.round:before {border-radius:50%;}
+</style>
+</head>
+<body>
+
+<h2>Toggle Switch</h2>
+
+
+<div class="switch">
+  <input type="checkbox" id="a" checked>
+  <label for="a" class="slider round"></label>
+</div>
+
+</body>
+</html> 

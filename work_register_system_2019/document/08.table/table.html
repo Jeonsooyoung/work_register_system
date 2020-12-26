@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta property="og:title" content="">
+	<meta property="og:type" content="website">
+	<meta name="naver-site-verification" content="">
+	<meta property="og:image" content="">
+	<meta http-equiv="Cache-Control" content="No-Cache">
+	<meta http-equiv="Pragma" content="No-Cache">
+	<meta name="language" content="ko">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<title>테이블 종류</title>
+	<style type="text/css">
+
+
+html,body,p,h1,h2,h3,h4,h5,h6,menu,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select,hr { margin:0;padding:0; }
+body { font-size:0.75em; font-family:'Noto Sans KR', '돋움',Dotum,AppleGothic,sans-serif; }
+input,textarea,select,button,table{ font-size:1em; }
+img,fieldset,button{ border:0; }
+img, input, select { vertical-align:middle; }
+ul,ol { display:inline-block; list-style:none; width:100%; vertical-align:top;}
+em,address,i { font-style:normal; }
+a { text-decoration:none; vertical-align:middle; }
+a:hover,a:active,a:focus { text-decoration:none; }
+button { display:inline-block;overflow:hidden;border:0;background:none;cursor:pointer; font-family:'Noto Sans KR', '돋움',Dotum,AppleGothic,sans-serif;}
+button > span { position:relative; }
+table{ border-collapse:collapse;border-spacing:0; width:100%; }
+.hide { position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; filter:alpha(opacity=0); zoom:1; text-indent:-9999px; z-index:0; overflow:hidden; }
+caption { height: 1px; overflow: hidden; line-height: 0; margin-top: -1px; color: transparent; }
+textarea { resize:none; vertical-align:middle; }
+
+select.btn-select, select.select {-webkit-appearance: none; -moz-appearance: none; appearance: none;}/* 2019-07-15 추가*/
+select::-ms-expand {display:none}
+select.select {padding: 8px 12px; padding-right:36px; height:36px; line-height:18px; border:1px solid #ccc; background:url("../images/ico_select-arrow.png") no-repeat center right 13px; border-radius:2px; vertical-align:middle; font-size:15px; color:#000}/* 2019-07-15 추가*/
+select.select.on, select.select.active{ border:1px solid #333}/* on 이거나 active일때  */
+
+
+	/* table */
+	.tbl-type01 table {width:100%;border:1px solid #dee2e6;box-shadow:1px 1px 1px rgba(0,0,0,0.1); transition:all 0.3s }
+	.tbl-type01 table:hover {box-shadow:2px 2px 5px rgba(0,0,0,0.3);}
+
+	.tbl-type01 table thead tr th {background:#efefef; font-size:14px; }
+	.tbl-type01 table tr th, .tbl-type01 table tr td {text-align:center;padding:8px 15px;border-bottom:1px solid #dee2e6;letter-spacing:-1px;vertical-align:middle;word-break:keep-all;line-height:20px;font-size:13px;color:#333;}
+	.tbl-type01 table tbody tr:hover th,.tbl-type01 table tbody tr:hover td {background-color:#fafafa}
+
+	.tbl-type1 { border-top:1px solid #ddd; letter-spacing:-0.05em; }
+	.tbl-type1 th { position:relative; padding:15px 5px; font-size:15px; line-height:16px; color:#333; text-align:center; border-bottom:1px solid #ddd; background:#f9f9f9; }
+	.tbl-type1 th:after {position:absolute; right:0; top: 50%; width:1px; height:17px;  margin-top:-8px; background:#ddd;z-index:1; content:''}
+	.tbl-type1 th:last-child:after {display:none;}
+	.tbl-type1 td { padding:19px 5px; border-bottom:1px solid #ddd; line-height:18px;  text-align:center; font-size:15px; letter-spacing:0;  color:#777;}
+	.tbl-type1 tr:hover td:not(.except), .tbl-type1 tr.on td {background:#f8f8f8;color:#000}
+	.tbl-type1 tr:hover td .txt , .tbl-type1 tr.on td .txt{border-bottom:1px solid #000}
+	.tbl-type1 td > .tooltip-wrap > a:not(.btn-blue-line), .tbl-type1 td > a {color:inherit}
+	.tbl-type1 tr:hover td > a {border-bottom:1px solid #000; }/* 2019-08-09 추가 */
+	.tbl-type1 td .btn-link {color:#000}
+
+	.tbl-type2 { margin-bottom:30px; border-top:1px solid #ddd; letter-spacing:-0.05em; }
+	.tbl-type2 table {border-collapse:separate}/* IE th border 제어를 위해 삽입 */
+	.tbl-type2 th { position:relative; padding:17px 5px; font-size:15px; line-height:15px ;text-align:center;border-right:1px solid #ddd; border-bottom:1px solid #ddd; background:#fff; color:#111; font-weight:500;}
+	.tbl-type2 th .tx-gray {display:inline-block; font-size:13px; }
+	.tbl-type2 thead th, .tbl-type2 thead td { border-bottom:1px solid #666; }
+	.tbl-type2 thead td {color:#2b2b2b;}
+	.tbl-type2 tr th:first-child {color:#333; background:#f8f8f8; border-right-color:#aaa; letter-spacing:-0.05em}
+	.tbl-type2 tfoot tr:first-child th,.tbl-type2 tfoot tr:first-child td  {border-top:2px solid #666}
+	.tbl-type2 tfoot tr td  {color:#111}
+	.tbl-type2 tbody tr:last-child th,
+	.tbl-type2 tbody tr:last-child td {border-bottom:0;}
+
+	/* 방문자수 3개월 */
+	.tbl-type2.db_head thead tr:nth-child(1) th,
+	.tbl-type2.db_head thead tr:nth-child(2) th { padding: 9px 5px; color:#777; font-size:14px; }
+	.tbl-type2.db_head thead tr:nth-child(1) th:nth-child(2),
+	.tbl-type2.db_head thead tr:nth-child(1) th:nth-child(3) {border-bottom-color:#aaa}
+	.tbl-type2.db_head thead tr:nth-child(1) th {border-bottom-color:#ddd}
+	.tbl-type2.db_head tbody tr th:first-child, 
+	.tbl-type2.db_head thead tr:nth-child(2) th:first-child {border-right-color:#ddd}
+	.tbl-type2.db_head thead tr:nth-child(2) th,
+	.tbl-type2.db_head tbody tr th { background:#f8f8f8; border-right:1px solid #aaa; }
+	.tbl-type2.db_head.hv-color tbody tr:hover td:nth-child(3) {color:#3f98d6}
+	.tbl-type2.db_head.hv-color tbody tr:hover td:nth-child(4)	{color:#ec5151}
+
+	.tbl-type2 th:last-child{border-right:0;}
+	.tbl-type2 td { padding:17px 5px; border-right:1px solid #ddd; border-bottom:1px solid #ddd; line-height:16px;  text-align:center; font-size:15px;  color:#777;}
+	.tbl-type2 td:last-child {border-right:0}
+	.tbl-type2 tbody tr:hover th,.tbl-type2 tbody tr:hover td,
+	.tbl-type2 tfoot tr:hover th,.tbl-type2 tfoot tr:hover td {font-weight:bold; background:#f8f8f8; color:#000}
+	.tbl-type2.hv-color tbody tr:hover td:nth-child(2), 
+	.tbl-type2.hv-color tfoot tr:hover td:nth-child(2) {color:#3f98d6}
+	.tbl-type2.hv-color tbody tr:hover td:nth-child(3),
+	.tbl-type2.hv-color tfoot tr:hover td:nth-child(3) {color:#ec5151}
+
+	.tbl-type3 table {border-collapse:separate}/* IE th border 제어를 위해 삽입 */
+	.tbl-type3 thead tr.first th:first-child ,
+	.tbl-type3 tbody tr th:first-child,
+	.tbl-type3 thead tr.first th:nth-child(2),
+	.tbl-type3 thead tr.first th:nth-child(3),
+	.tbl-type3 thead tr.first th:nth-child(5),
+	.tbl-type3 tbody tr td:nth-child(2),
+	.tbl-type3 tbody tr td:nth-child(3),
+	.tbl-type3 tbody tr th:nth-child(5) , 
+	.tbl-type3 tbody tr td:nth-child(5) {border-right:1px solid #666;}
+	.tbl-type3 { border-top:1px solid #ddd; letter-spacing:-0.05em; }
+	.tbl-type3 th { position:relative; padding:15px 5px; font-size:13px; line-height:16px; color:#000; text-align:center; border-bottom:1px solid #ddd; font-weight:500; }
+	.tbl-type3 thead th:first-child {color:#555;}
+	.tbl-type3 thead th {background:#f9f9f9;}
+	.tbl-type3 thead th:nth-child(4):after {position:absolute; right:0; top: 50%; width:1px; height:17px;  margin-top:-8px; background:#ddd;z-index:1; content:''}
+	.tbl-type3 td { padding:19px 5px; border-bottom:1px solid #ddd; line-height:18px;  text-align:center; font-size:15px;  color:#777;}
+
+	/* 접속 불가 페이지 */
+	.tbl-type4 { border-top:1px solid #ddd; letter-spacing:-0.05em; }
+	.tbl-type4 table {border-collapse:separate}/* IE th border 제어를 위해 삽입 */
+	.tbl-type4 th { position:relative; padding:15px 5px; font-size:13px; line-height:16px; color:#000; text-align:center; background:#f8f8f8; border-right:1px solid #ddd; border-bottom:1px solid #ddd; font-weight:500; }
+	.tbl-type4 td { padding:19px 5px;  border-right:1px solid #ddd; border-bottom:1px solid #ddd; line-height:26px;  text-align:center; font-size:15px; color:#000;}
+	.tbl-type4 th:first-child, .tbl-type4 td:first-child {border-left:1px solid #ddd;}
+
+	.tbl-type-row {border:1px solid #999;}
+	.tbl-type-row table {table-layout:fixed}
+	.tbl-type-row th, .tbl-type-row td {border-bottom:1px solid #ddd; font-weight:normal; text-align:center;}
+	.tbl-type-row th {padding:7px 5px; border-right:1px solid #ddd; background:#f8f8f8; line-height:22px; font-size:13px; color:#777; vertical-align:middle}
+	.tbl-type-row td {padding:7px 9px; line-height:22px; font-size:15px;  color:#000}
+	.tbl-type-row tbody tr:last-child th, .tbl-type-row tbody tr:last-child td {border-bottom:0;}
+
+	.tbl-type-row tbody tr:last-child td {padding-left:20px;}
+
+	.tbl-type-row thead th .bold {font-size:15px; color:#000; }
+	.tbl-type-row td .bold {line-height:26px;}
+	.tbl-type-row.no-data th,
+	.tbl-type-row.no-data td {color:#999; }
+
+	#content {padding:50px 100px; width:800px; margin:0 auto; }
+	#content > * {margin-bottom:20px;}
+	.input-txt input {width:120px}
+	</style>
+	<!-- css, js 연결
+	<link rel="stylesheet" href="../resource/css/normalize.css">
+	<link rel="stylesheet" href="../resource/css/style.css">
+	<script src="../resource/js/jquery-2.1.1.min.js"></script>
+	<script src="../resource/js/common.js"></script> -->
+	<script type="text/javascript">
+	$(function(){
+
+	})
+	</script>
+</head>
+ <body>
+	<div id="wrap">
+
+		<div id="content">
+			<h1 style="text-align:center;"> 테이블 UI</h1>
+			<!-- tbl-type01 -->
+			<div class="tbl-type01">
+				<table>
+					<caption>관리자 그룹, 계정 상태, 검색어 검색 결과에 대한 이름,관리자 그룹,ID,전화번호,계정 상태 결과 수정 테이블</caption>
+					<colgroup>
+						<col style="width:20%"/>
+						<col style="width:auto"/>
+						<col style="width:20%"/>
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">메뉴</th>
+							<th scope="col">메뉴 항목</th>
+							<th scope="col">사용 권한</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- 출입통제 -->
+						<tr>
+							<td rowspan="3">출입통제</td>
+							<td>사용현황</td>
+							<td>
+								<div class="input-switch">
+									<input type="checkbox" id="" title="사용현황 메뉴 권한 활성화 여부"/>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>원격제어</td>
+							<td>
+								<div class="input-switch">
+									<input type="checkbox" id="" title="원격제어 메뉴 권한 활성화 여부"/>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>스케줄링</td>
+							<td>
+								<div class="input-switch">
+									<input type="checkbox" id="" title="스케줄링 메뉴 권한 활성화 여부"/>
+								</div>
+							</td>
+						</tr>
+						<!-- //출입통제 -->
+
+					</tbody>
+				</table>
+			</div>
+			<!-- //tbl-type01 -->
+
+			<!-- tbl-type1 -->
+			<div class="tbl-type1">
+				<table>
+					<caption>관리자 그룹, 계정 상태, 검색어 검색 결과에 대한 이름,관리자 그룹,ID,전화번호,계정 상태 결과 수정 테이블</caption>
+					<colgroup>
+						<col style="width:20%"/>
+						<col style="width:auto"/>
+						<col style="width:20%"/>
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">메뉴</th>
+							<th scope="col">메뉴 항목</th>
+							<th scope="col">사용 권한</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- 출입통제 -->
+						<tr>
+							<td rowspan="3">출입통제</td>
+							<td>사용현황</td>
+							<td>
+								<div class="input-switch">
+									<input type="checkbox" id="" title="사용현황 메뉴 권한 활성화 여부"/>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>원격제어</td>
+							<td>
+								<div class="input-switch">
+									<input type="checkbox" id="" title="원격제어 메뉴 권한 활성화 여부"/>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>스케줄링</td>
+							<td>
+								<div class="input-switch">
+									<input type="checkbox" id="" title="스케줄링 메뉴 권한 활성화 여부"/>
+								</div>
+							</td>
+						</tr>
+						<!-- //출입통제 -->
+
+					</tbody>
+				</table>
+			</div>
+			<!-- //tbl-type1 -->
+
+			<!-- tbl-type2 -->
+			<div class="tbl-type2 hv-color">
+					<table>
+						<colgroup>
+							<col style="width:25%">
+							<col style="width:37%">
+							<col style="width:38%">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="row">시간</th>
+								<th scope="row"><span class="tx-blue">IN</span> <span class="tx-gray">(명)</span></th>
+								<th scope="row"><span class="tx-red">OUT</span> <span class="tx-gray">(명)</span></th>
+							</tr>
+						</thead>
+						<tbody>						
+							<tr>
+								<th scope="col">5-6시</th>
+								<td>55,123</td>
+								<td>55,123</td>
+							</tr>
+						</tbody>
+						<!-- 2019-09-19 추가 -->
+						<tfoot>
+							<tr>
+								<th scope="col">합계</th>
+								<td>158,123</td>
+								<td>196,100</td>
+							</tr>
+							<tr>
+								<th scope="col">평균</th>
+								<td>6,123</td>
+								<td>5,000</td>
+							</tr>
+						</tfoot>
+						<!--//2019-09-19 추가 -->
+					</table>
+				</div>
+			<!-- //tbl-type2 -->
+			<!-- tbl-type3 -->
+			<div class="tbl-type3">
+					<table>
+						<colgroup><!-- 2019-09-03 너비 수정 -->
+							<col style="width:20%">
+							<col style="width:12%">
+							<col style="width:12%">
+							<col style="width:8%">
+							<col style="width:8%">
+							<col style="width:auto">
+							<col style="width:auto">
+							<col style="width:auto">
+							<col style="width:auto">
+							<col style="width:auto">
+							<col style="width:auto">
+						</colgroup>
+						<!-- 2019-09-23 수정 -->
+						<thead>
+							<tr class="first">
+								<th scope="row">지점</th>
+								<th scope="row">방문자수(명)</th>
+								<th scope="row">
+		
+								</th>
+								<th scope="row">여성</th>
+								<th scope="row">남성</th>
+								<th scope="row">0 ~ 18세</th>
+								<th scope="row">19 ~ 28세</th>
+								<th scope="row">29 ~ 35세</th>
+								<th scope="row">36 ~ 45세</th>
+								<th scope="row">46 ~ 55세</th>
+								<th scope="row">56세 이상</th>
+							</tr>
+						</thead>
+						<!-- //2019-09-23 수정 -->
+						<tbody>
+							<tr>
+								<th scope="col">백화점</th>
+								<td><i class="tx-red">-</i> 5%</td>
+								<td>84,578</td><!--2019-09-23 추가 -->
+								<td>21%</td>
+								<td>79%</td>
+								<td>3%</td>
+								<td>15%</td>
+								<td>38%</td>
+								<td>42%</td>
+								<td>1%</td>
+								<td>1%</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			<!-- //tbl-type3 -->
+			<!-- tbl-type4 -->
+			<div class="tbl-type4">
+					<table>
+						<colgroup>
+							<col style="width:30%">
+							<col style="width:36%">
+							<col style="width:17%">
+							<col style="width:17%">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">프로그램명</th>
+								<th scope="col">기능</th>
+								<th scope="col">설치현황</th>
+								<th scope="col">설치</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>MAC 인증프로그램(필수)<br>(nProtect Online Security)</td>
+								<td>단말정보(MAC 주소) 수집 인증</td>
+								<td>미설치</td>
+								<td>
+									<button type="button" class="btn-m"><span>다운로드</span><span class="ico-down"></span></button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			<!-- //tbl-type4 -->
+
+			<!-- tbl-row-type -->
+			<div class="tbl-type-row">
+				<table>
+					<caption>관리자 계정 정보 테이블</caption>
+					<colgroup>
+						<col style="width:30%"/>
+						<col style="width:auto"/>
+						<col style="width:30%"/>
+						<col style="width:auto"/>
+					</colgroup>
+					<tbody>
+						<!-- ID/계정상태 -->
+						<tr>
+							<th scope="row">ID</th>
+							<td>
+								ABCD
+								<button type="button" class="btn-l btn-basic">비밀번호 초기화</button>
+							</td>
+							<th scope="row">계정상태</th>
+							<td>
+								<span class="input-radio">
+									<input type="radio" name="admin_auth" id="admin_auth_ok"/>
+									<label for="admin_auth_ok">이용 중</label>
+								</span>
+								<span class="input-radio">
+									<input type="radio" name="admin_auth" id="admin_auth_no"/>
+									<label for="admin_auth_no">이용 중지</label>
+								</span>
+							</td>
+						</tr>
+						<!-- //ID/계정상태 -->
+
+						<!-- 이름/사원 번호 -->
+						<tr>
+							<th scope="row">
+								<label for="admin_name">이름</label>
+							</th>
+							<td>
+								<span class="">박*태</span>
+								<div class="input-txt">
+									<input type="text" id="admin_name" placeholder="변경하실 이름을 입력하세요." />									
+								</div>
+							</td>
+							<th scope="row">사원 번호</th>
+							<td>
+								<div class="input-txt">
+									<input type="text" id="admin_name" value="12345" />									
+								</div>
+							</td>
+						</tr>
+						<!-- //이름/사원 번호 -->
+
+						<!-- 전화번호/전화번호 인증 -->
+						<tr>
+							<th scope="row">전화번호</th>
+							<td>
+								<span class="">010****1234</span>
+								<div class="input-txt">
+									<input type="text" id="admin_name" placeholder="변경하실 전화번호를 입력하세요." />									
+								</div>
+							</td>
+							<th scope="row">로그인 시, 전화번호 인증</th>
+							<td>
+								<span class="input-radio">
+									<input type="radio" name="admin_phone" id="admin_phone_auth1"/>
+									<label for="admin_phone_auth1">사용</label>
+								</span>
+								<span class="input-radio">
+									<input type="radio" name="admin_phone" id="admin_phone_auth2"/>
+									<label for="admin_phone_auth2">미 사용</label>
+								</span>
+							</td>
+						</tr>
+						<!-- //전화번호/전화번호 인증 -->
+
+						<!-- 이메일 -->
+						<tr>
+							<th scope="row">이메일</th>
+							<td colspan="3">
+								<span class="">ab***@mail.com</span>
+								<div class="input-txt">
+									<input type="text" id="admin_email" placeholder="이메일" />
+									<span class="txt-form">@</span>
+									<select name="" id="" class="btn-select">
+										<option value="naver">naver.com</a></option>
+										<option value="hanmail">hanmail.net</option>
+										<option value="nate">nate.com</option>
+										<option value="gmail">gmail.com</option>
+										<option value="Hotmail">Hotmail.com</option>
+										<option value="self">직접 입력</option>
+									</select>
+									<!-- 직접 입력 input -->
+									<input type="text" placeholder="직접입력" />
+									<!-- //직접 입력 input -->
+								</div>
+								<p class="">변경하실 이메일을 입력하세요.</p>
+							</td>
+						</tr>
+						<!-- //이메일 -->
+
+					</tbody>
+				</table>
+			</div>
+			<!-- //tbl-row-type -->
+
+
+		</div>
+	</div>
+ </body>
+</html>

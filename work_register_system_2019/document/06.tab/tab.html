@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" >
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<meta name="author" content="SK MNS" >
+	
+	<title>list 종류</title>
+	<style type="text/css">
+	ul, li {padding:0;margin:0;list-style:none}
+	a {text-decoration:none;color:inherit}
+	/* tab-type1 */
+	.tab-type1 {background:#fafafa; border-bottom:1px solid #ddd;}
+	.tab-type1 ul {width:100%;font-size:0px}
+	.tab-type1 ul li {position:relative; display:inline-block;text-align:center;font-size:15px;}
+	.tab-type1 ul li a {display:inline-block;padding:12px 15px; line-height:20px; font-size:13px; color:#666}
+	.tab-type1 ul li a:hover, .tab-type1 ul li.on a:hover {color:#888; font-weight:bold;}
+	.tab-type1 ul li:after {display:inline-block; line-height:45px; position:absolute; top:0; right:-5px; margin:0 auto; content:'•'; font-size:11px; color:#999}
+	.tab-type1 ul li:last-child::after {display:none;}
+	.tab-type1 ul li.on a {position:relative; font-weight:bold; color:#000}
+	.tab-type1 ul li.on a:after {position:absolute; left:0; bottom:0; width:100%; height:1px; background:orange; content:''}
+
+	/* tab-box */
+	.tab-box {width:460px;margin:0 auto}
+	.tab-btn {text-align:center}
+	.tab-btn ul {display:inline-block;width:100%;margin-bottom:10px;font-size:0px}
+	.tab-btn ul li {display:inline-block;width:50%;border:1px solid #dee2e6;border-top-width:2px;background:#fafafa;letter-spacing:-0.5px;text-align:center;font-size:15px;color:#333; box-sizing:border-box}
+	.tab-btn .count3 li {width:33.3%}
+	.tab-btn .count4 li {width:25%}
+	.tab-btn .count5 li {width:20%}
+	.tab-btn .count6 li {width:16.6%}
+	.tab-btn ul li.on {border-top-color:#bc243c;background:#fff;border-bottom:0;font-weight:bold}
+	.tab-btn ul li:not(:first-child) {border-left-color:transparent} 
+	.tab-btn ul li:first-child:last-child {width:100%}
+	.tab-btn ul li a {display:block;padding:15px 10px;}
+	.tab-btn.fixed {position:fixed;top:0;left:0;width:100%;background-color:#fff;z-index:2000}
+	.tab-btn.fixed ul {margin-bottom:0;}
+	.tab-btn.fixed ul li.on {border-bottom:1px solid #ddd;}
+	.tab-btn.fixed.absolute {position:absolute;}
+	.tab-cnt {display:none;padding:10px}
+	.tab-cnt:first-child {display:block;}
+	.tab-cnt .notice {margin-bottom: 20px;font-size: 11px;line-height: 1.6;text-align: left;}
+	.tab-cnt .title {font-weight:bold;font-size:16px;line-height:24px;}
+	.tab-cnt .input-area {margin-bottom:30px;}
+	.tab-cnt .input-area .btn-basic {width:auto;height:40px;line-height:40px;margin:5px 5px;padding:0 15px;background:#bc243c;color:#fff}
+	.tab-cnt .input-area + .warning-txt {margin-top:-20px;}
+	.tab-cnt .input-area + .btn-basic {margin-top:-10px}
+
+	</style>
+	<!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
+
+	<!-- <link rel="stylesheet" href="../css/layout.css" media="screen, print" />
+	<link rel="stylesheet" href="../css/contents.css" media="screen, print" />
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/layerpop.js"></script>
+	<script src="../js/inpdesign.js"></script>
+	<script src="../js/common.js"></script> -->
+	<script src="../../assets/js/jquery.3.2.1.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		function tab () {
+			$(".tab-link > ul > li > a").on("click",function(){
+				var num =$(this).parent().index();
+				$(this).parent().addClass("on").siblings().removeClass("on");
+				$(".tab-cnt-box > .tab-cnt").eq(num).show().siblings().hide();
+				return false;
+			});
+		}
+		tab();
+	});
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<!-- 컨텐츠 -->
+		<div class="tab-btn tab-link">
+			<ul>
+				<li class="on"><a href="#">TAB1</a></li>
+				<li><a href="#">TAB2</a></li>
+			</ul>
+		</div>
+		<!-- // 컨텐츠 -->
+		<div class="tab-cnt-box">
+			<div id="" class="tab-cnt">
+				<h3 class="subtitle">타이틀</h3>	
+
+			</div>
+			
+			<div class="tab-cnt">
+				<h3 class="subtitle">타이틀2</h3>			
+			</div>
+		</div>
+	</div>
+</body>
+</html>
